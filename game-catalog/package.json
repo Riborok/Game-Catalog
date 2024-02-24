@@ -1,13 +1,27 @@
 {
     "private": true,
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+        "dev": "npm run development",
+        "prod": "npm run production",
+        "watch": "npm run watch-poll",
+        "watch-poll": "mix watch",
+        "development": "mix",
+        "production": "mix --production"
     },
     "devDependencies": {
         "axios": "^1.6.4",
+        "cross-env": "^7.0.3",
+        "laravel-mix": "^6.0.49",
+        "laravel-mix-clean": "^0.1.0",
         "laravel-vite-plugin": "^1.0.0",
-        "vite": "^5.0.0"
+        "lodash": "^4.17.21",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.71.1",
+        "sass-loader": "^14.1.1",
+        "vite": "^5.1.4"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3"
     }
 }

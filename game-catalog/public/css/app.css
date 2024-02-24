@@ -1,0 +1,37 @@
+.dropdown-menu .dropdown-item {
+  color: white;
+  transition: color 0.5s, background-color 0.5s, transform 0.5s;
+  border-radius: 12px;
+}
+.dropdown-menu .dropdown-item:hover {
+  color: #ffe800;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+.dropdown-menu .dropdown-item:active {
+  color: #838300;
+  transform: scale(0.92);
+}
+
+header .nav {
+  --bs-nav-link-hover-color: white;
+}
+header .nav-link {
+  color: white;
+  transition: color 0.5s, background-color 0.5s, transform 0.5s;
+  border-radius: 12px;
+}
+header .nav-link:hover {
+  color: #ffe800;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+header .nav-link:active {
+  color: #838300;
+  transform: scale(0.92);
+}
+
+#profile-avatar {
+  border-radius: 35%;
+  background-color: white;
+}
