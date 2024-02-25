@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::get('/catalog', function () {
     return view('catalog');
