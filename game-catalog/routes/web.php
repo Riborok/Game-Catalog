@@ -4,11 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/', 'App\Http\Controllers\AdminController@home')->name('home');
 
-Route::get('/catalog', function () {
-    return view('catalog');
-})->name('catalog');
+Route::get('/catalog', 'App\Http\Controllers\AdminController@catalog')->name('catalog');
 
 Route::get('/login', function () {
     if (Auth::check()) {

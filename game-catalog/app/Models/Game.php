@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Feature extends Model
+class Game extends Model
 {
     protected $fillable = [
-        'title', 'text', 'image', 'order'
+        'title', 'description', 'image', 'link',
     ];
 }
