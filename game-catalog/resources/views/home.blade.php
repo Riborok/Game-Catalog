@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Game Catalog
+    Introduction to Games
 @endsection
 
 @section('content')
