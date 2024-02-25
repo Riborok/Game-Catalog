@@ -26,13 +26,13 @@ class LoginController extends Controller
         if (!$user) {
             return back()->withErrors([
                 'email' => 'Invalid email address',
-            ]);
+            ])->withInput();
         }
 
         if (!Auth::attempt($credentials, $request->filled('remember'))) {
             return back()->withErrors([
                 'password' => 'Invalid password',
-            ]);
+            ])->withInput();
         }
 
         return redirect()->route('profile');
