@@ -13,7 +13,12 @@
             <ul class="dropdown-menu text-bg-dark">
                 <li><a class="dropdown-item fs-6" href="{{ route('profile') }}">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item fs-6" href="#">Sign out</a></li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="dropdown-item fs-6">Sign out</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

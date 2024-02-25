@@ -37,10 +37,24 @@ header .dropdown-menu .dropdown-item:active {
   height: 2.3rem;
 }
 
+footer {
+  margin-top: auto;
+}
 footer span {
   color: white;
 }
 footer .icon {
   width: 1.7rem;
   height: 1.7rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.content {
+  flex-grow: 1;
 }
