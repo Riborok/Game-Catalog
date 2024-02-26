@@ -18,10 +18,8 @@
 </head>
 <body>
 @include('components.header')
-<div class="container">
-    <div class="content">
-        @yield('content')
-    </div>
+<div class="container content">
+    @yield('content')
 </div>
 @include('components.footer')
 </body>

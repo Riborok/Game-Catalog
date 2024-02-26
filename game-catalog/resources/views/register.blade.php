@@ -8,7 +8,7 @@
     <div class="row justify-content-center my-3">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Register</div>
+                <div class="card-header text-bg-dark">Register</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('profile.register') }}">
                         @csrf
