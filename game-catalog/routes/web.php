@@ -1,37 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\AdminController@home')->name('home');
 
 Route::get('/catalog', 'App\Http\Controllers\AdminController@catalog')->name('catalog');
 
-Route::get('/login', function () {
-    if (Auth::check()) {
-        return redirect()->route('profile');
-    } else {
-        return view('login');
-    }
-})->name('login');
+Route::get('/login', 'App\Http\Controllers\CheckAuthController@showLogin')->name('login');
 
-Route::get('/register', function () {
-    if (Auth::check()) {
-        return redirect()->route('profile');
-    } else {
-        return view('register');
-    }
-})->name('register');
+Route::get('/register', 'App\Http\Controllers\CheckAuthController@showRegister')->name('register');
 
-Route::get('/profile', function () {
-    if (Auth::check()) {
-        $user = Auth::user();
-        return view('profile', ['user' => $user]);
-    } else {
-        return redirect()->route('login');
-    }
-})->name('profile');
+Route::get('/profile', 'App\Http\Controllers\CheckAuthController@showProfile')->name('profile');
 
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
