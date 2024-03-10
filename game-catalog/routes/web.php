@@ -12,6 +12,12 @@ Route::get('/register', 'App\Http\Controllers\CheckAuthController@showRegister')
 
 Route::get('/profile', 'App\Http\Controllers\CheckAuthController@showProfile')->name('profile');
 
+Route::get('/calendar', 'App\Http\Controllers\CalendarController@showTodaysCalendar')
+    ->name('todays-calendar');
+
+Route::get('/calendar/{year}/{month}', 'App\Http\Controllers\CalendarController@showCalendar')
+    ->where(['year' => '[0-9]+', 'month' => '[0-9]+'])->name('calendar');
+
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
 Route::post('/profile/register', 'App\Http\Controllers\RegisterController@submit')->name('profile.register');

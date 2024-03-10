@@ -3,6 +3,7 @@
         <ul class="nav me-auto mb-2 justify-content-center mb-md-0 flex-wrap">
             <li><a href="{{ route('home') }}" class="nav-link px-2 fs-6">Home</a></li>
             <li><a href="{{ route('catalog') }}" class="nav-link px-2 fs-6">Catalog</a></li>
+            <li><a href="{{ route('todays-calendar') }}" class="nav-link px-2 fs-6">Calendar</a></li>
         </ul>
 
         <div class="dropdown text-end">

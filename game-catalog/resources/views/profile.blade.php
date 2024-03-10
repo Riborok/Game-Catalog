@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="row justify-content-center mt-2">
+    <div class="row justify-content-center my-3">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-bg-dark">Profile</div>

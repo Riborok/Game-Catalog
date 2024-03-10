@@ -1,0 +1,22 @@
+$bc-color: rgb(230, 230, 230);
+$bc-hover-color: rgb(180, 180, 180);
+$item-active-color: rgb(130, 130, 130);
+
+.btn-square {
+    width: 30px;
+    height: 30px;
+    background-color: $bc-color;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.5s, transform 0.5s;
+    &:hover {
+        background-color: $bc-hover-color;
+        transform: translateY(-4px);
+    }
+    &:active {
+        background-color: $item-active-color;
+        transform: scale(0.92);
+    }
+}

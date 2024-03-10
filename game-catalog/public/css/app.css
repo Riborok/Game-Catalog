@@ -48,6 +48,25 @@ footer .icon {
   height: 1.7rem;
 }
 
+.btn-square {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(230, 230, 230);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.5s, transform 0.5s;
+}
+.btn-square:hover {
+  background-color: rgb(180, 180, 180);
+  transform: translateY(-4px);
+}
+.btn-square:active {
+  background-color: rgb(130, 130, 130);
+  transform: scale(0.92);
+}
+
 body {
   display: flex;
   flex-direction: column;
