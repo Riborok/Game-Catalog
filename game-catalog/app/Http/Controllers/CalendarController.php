@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class CalendarController extends Controller
 {
-    const SHORT_DAYS_OF_WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    public const SHORT_DAYS_OF_WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
     public function showTodaysCalendar() {
         $currentDate = \Carbon\Carbon::now();
@@ -44,7 +43,8 @@ class CalendarController extends Controller
 
         $this->addPreviousMonthDays($currentDate, $month, $calendar);
         $this->addCurrentMonthDays($currentDate, $month, $calendar);
-        $this->addNextMonthDays($currentDate, $calendar);
+        $this->addDaysToEndOfWeek($currentDate, $calendar);
+        $this->addDaysToSixWeeks($currentDate, $calendar);
 
         return $calendar;
     }
@@ -71,9 +71,20 @@ class CalendarController extends Controller
         }
     }
 
-    private function addNextMonthDays($currentDate, &$calendar)
+    private function addDaysToEndOfWeek($currentDate, &$calendar)
     {
         while ($currentDate->dayOfWeek != 1) {
+            $calendar[] = [
+                'date' => $currentDate->format('d'),
+                'otherMonth' => true,
+            ];
+            $currentDate->addDay();
+        }
+    }
+
+    private function addDaysToSixWeeks($currentDate, &$calendar)
+    {
+        while (count($calendar) < 6 * count(CalendarController::SHORT_DAYS_OF_WEEK)) {
             $calendar[] = [
                 'date' => $currentDate->format('d'),
                 'otherMonth' => true,
