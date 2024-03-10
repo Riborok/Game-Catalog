@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,9 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-    public function submit(Request $request)
+    public function submit(LoginRequest $loginRequest)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $loginRequest->only('email', 'password');
 
         $user = User::where('email', $credentials['email'])->first();
 
@@ -29,7 +30,7 @@ class LoginController extends Controller
             ])->withInput();
         }
 
-        if (!Auth::attempt($credentials, $request->filled('remember'))) {
+        if (!Auth::attempt($credentials, $loginRequest->filled('remember'))) {
             return back()->withErrors([
                 'password' => 'The password is incorrect.',
             ])->withInput();
