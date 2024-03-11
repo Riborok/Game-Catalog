@@ -20,3 +20,14 @@ $item-active-color: rgb(130, 130, 130);
         transform: scale(0.92);
     }
 }
+
+.dedicated-text {
+    width: 30px;
+    background-color: $bc-hover-color;
+    border-radius: 50%;
+    transition: background-color 0.5s, transform 0.5s;
+    &:hover {
+        background-color: $item-active-color;
+        transform: translateY(3px);
+    }
+}

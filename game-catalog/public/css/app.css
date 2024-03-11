@@ -67,6 +67,17 @@ footer .icon {
   transform: scale(0.92);
 }
 
+.dedicated-text {
+  width: 30px;
+  background-color: rgb(180, 180, 180);
+  border-radius: 50%;
+  transition: background-color 0.5s, transform 0.5s;
+}
+.dedicated-text:hover {
+  background-color: rgb(130, 130, 130);
+  transform: translateY(3px);
+}
+
 body {
   display: flex;
   flex-direction: column;

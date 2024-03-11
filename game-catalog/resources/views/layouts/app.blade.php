@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <script src="{{ asset('/js/all.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 @include('components.header')

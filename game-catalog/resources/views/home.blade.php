@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="mt-3">
+    <div class="mt-2">
         @foreach ($features as $feature)
             <x-featurette
                 title="{{ $feature->title }}"
