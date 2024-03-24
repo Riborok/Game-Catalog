@@ -27,7 +27,7 @@ class DateText extends Model
     public static function retrieveCachedCalendar($year, $month, $callback)
     {
         $cacheKey = static::generateCacheKey($year, $month);
-        return Cache::remember($cacheKey, now()->addMinutes(5), $callback);
+        return Cache::remember($cacheKey, now()->addMinutes(10), $callback);
     }
 
     public static function clearCachedCalendar($date)
