@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddDateRequest;
 use App\Http\Requests\UpdateDateRequest;
 use App\Models\DateText;
-use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class DateAdminController extends Controller
@@ -28,6 +28,7 @@ class DateAdminController extends Controller
         $dateText->date = $request->input('date');
         $dateText->text = $request->input('text');
         $dateText->save();
+        DateText::clearCachedCalendar(Carbon::parse($dateText->date));
         return back()->with('success', 'Date updated successfully.');
     }
 
@@ -38,6 +39,7 @@ class DateAdminController extends Controller
         $dateText->date = $request->input('new-date');
         $dateText->text = $request->input('new-text');
         $dateText->save();
+        DateText::clearCachedCalendar(Carbon::parse($dateText->date));
         return back()->with('success', 'Date added successfully.');
     }
 
@@ -50,6 +52,7 @@ class DateAdminController extends Controller
         }
 
         $dateText->delete();
+        DateText::clearCachedCalendar(Carbon::parse($dateText->date));
         return back()->with('success', 'Date deleted successfully.');
     }
 }

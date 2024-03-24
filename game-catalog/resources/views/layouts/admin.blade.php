@@ -14,6 +14,6 @@
         </div>
     @endif
 
-    <div class="table-name">@yield('admin-caption')</div>
+    <div class="profile-caption">@yield('admin-caption')</div>
     @yield('admin-content')
 @endsection

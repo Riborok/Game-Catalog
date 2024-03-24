@@ -30,9 +30,9 @@ class DateText extends Model
         return Cache::remember($cacheKey, now()->addMinutes(5), $callback);
     }
 
-    public static function clearCachedCalendar($year, $month)
+    public static function clearCachedCalendar($date)
     {
-        $cacheKey = static::generateCacheKey($year, $month);
+        $cacheKey = static::generateCacheKey($date->year, $date->month);
         Cache::forget($cacheKey);
     }
 

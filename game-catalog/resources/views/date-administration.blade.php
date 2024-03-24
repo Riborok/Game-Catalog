@@ -34,7 +34,7 @@
     </table>
 
     <div class="mt-4">
-        <div class="table-name">Add Date</div>
+        <div class="profile-caption">Add Date</div>
         <form method="POST" action="{{ route('date-administration.add') }}">
             @csrf
             <div class="form-group">

@@ -1,7 +1,7 @@
 @extends('layouts.profile')
 
 @section('profile-content')
-    <h5 class="card-title">Information</h5>
+    <div class="profile-caption">Information</div>
     <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" id="name" value="{{ $user->name }}" disabled>

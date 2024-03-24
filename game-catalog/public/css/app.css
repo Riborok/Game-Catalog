@@ -69,10 +69,17 @@ footer .icon {
   transform: scale(0.92);
 }
 
+.todays-text {
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
 .dedicated-text {
-  width: 30px;
+  width: 35px;
   background-color: rgb(180, 180, 180);
-  border-radius: 50%;
+  border-radius: 45%;
+  margin: auto;
   transition: background-color 0.5s, transform 0.5s;
 }
 .dedicated-text:hover {
@@ -82,11 +89,6 @@ footer .icon {
 
 .fixed-table-layout {
   table-layout: fixed;
-}
-
-.table-name {
-  font-size: 2rem;
-  font-weight: bold;
 }
 
 .user-table-cell {
@@ -105,8 +107,13 @@ footer .icon {
 }
 
 .scrollable-content {
-  max-height: 50vh;
+  max-height: 41vh;
   overflow-x: auto;
+}
+
+.profile-caption {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .game-card-img-height {

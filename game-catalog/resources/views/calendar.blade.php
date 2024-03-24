@@ -25,8 +25,8 @@
                     @foreach (array_chunk($calendar, count(App\Http\Controllers\CalendarController::SHORT_DAYS_OF_WEEK)) as $week)
                         <tr>
                             @foreach ($week as $day)
-                                <td class="{{ $day['date']->format('m') == $month ? 'text-dark' : 'text-body-tertiary' }}" data-toggle="tooltip" title="{{ $day['text'] }}">
-                                    <div class=" {{$day['text'] != '' ? 'dedicated-text m-auto' : ''}}">
+                                <td class="{{ $day['date']->format('m') == $month ? 'text-dark' : 'text-body-tertiary' }}" data-toggle="tooltip" title="{{ $day['text'] ?? '' }}">
+                                    <div class="{{$day['class'] ?? ''}}">
                                         {{ $day['date']->format('d') }}
                                     </div>
                                 </td>

@@ -30,7 +30,7 @@ class CalendarController extends Controller
     }
 
     public function showTodaysCalendar() {
-        $currentDate = \Carbon\Carbon::now();
+        $currentDate = Carbon::now();
         return redirect()->route('calendar', ['year' => $currentDate->year, 'month' => $currentDate->month]);
     }
 
@@ -49,6 +49,7 @@ class CalendarController extends Controller
 
             $this->fillWeeks($currentDate, $calendar, 6);
             $this->fillDateText($calendar);
+            $this->addTodaysClassIfExist($calendar);
 
             return $calendar;
         });
@@ -65,7 +66,22 @@ class CalendarController extends Controller
         foreach ($calendar as &$day) {
             $date = Carbon::createFromDate($day['date']->format('Y-m-d'));
             $dateText = DateText::whereDate($date);
-            $day['text'] = $dateText;
+            if ($dateText != '') {
+                $day['text'] = $dateText;
+                $day['class'] = 'dedicated-text';
+            }
+        }
+    }
+
+    private function addTodaysClassIfExist(&$calendar) {
+        $currentDate = Carbon::now();
+        foreach ($calendar as &$day) {
+            if ($day['date']->isSameDay($currentDate)) {
+                if (isset($day['class']))
+                    $day['class'] .= ' todays-text';
+                else
+                    $day['class'] = 'todays-text';
+            }
         }
     }
 }

@@ -21,10 +21,17 @@ $item-active-color: rgb(130, 130, 130);
     }
 }
 
+.todays-text {
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
 .dedicated-text {
-    width: 30px;
+    width: 35px;
     background-color: $bc-hover-color;
-    border-radius: 50%;
+    border-radius: 45%;
+    margin: auto;
     transition: background-color 0.5s, transform 0.5s;
     &:hover {
         background-color: $item-active-color;
