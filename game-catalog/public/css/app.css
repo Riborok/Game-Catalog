@@ -89,16 +89,24 @@ footer .icon {
   font-weight: bold;
 }
 
-.scrollable-table {
-  max-height: 50vh;
-  overflow-x: auto;
-}
-
-.table-cell {
-  width: 13vw;
-  max-width: 13vw;
+.user-table-cell {
   overflow: auto;
   white-space: nowrap;
+}
+
+.user-table-cell {
+  min-width: 14.5vw;
+  max-width: 14.5vw;
+}
+
+.date-text-width {
+  min-width: 18vw;
+  max-width: 18vw;
+}
+
+.scrollable-content {
+  max-height: 50vh;
+  overflow-x: auto;
 }
 
 .game-card-img-height {

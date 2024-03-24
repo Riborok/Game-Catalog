@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Features\CachesFeatures;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 class DateText extends Model
 {
+    use CachesFeatures;
+
+    protected static $CACHE_KEY = 'dates';
+
     protected $fillable = [
         'date',
         'text',

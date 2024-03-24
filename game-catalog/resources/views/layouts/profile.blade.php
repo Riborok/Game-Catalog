@@ -16,13 +16,14 @@
                                 Admin Panel
                             </a>
                             <ul class="dropdown-menu text-bg-dark">
-                                <li><a class="dropdown-item" href="{{ route('user.administration') }}">User Administration</a></li>
+                                <li><a class="dropdown-item" href="{{ route('user-administration') }}">User Administration</a></li>
+                                <li><a class="dropdown-item" href="{{ route('date-administration') }}">Date Administration</a></li>
                             </ul>
                         </div>
                     @endif
                 </div>
                 <div class="card-body">
-                    <div class="scrollable-table">
+                    <div class="scrollable-content">
                         @yield('profile-content')
                     </div>
                 </div>

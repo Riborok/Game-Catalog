@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feature;
+use App\Models\DateText;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 
-class AdminController extends Controller
+class UserAdminController extends Controller
 {
-    public function userAdministration() {
+    public function userAdministration()
+    {
         $user = Auth::user();
         $users = User::retrieveCached();
         return view('user-administration', ['user' => $user, 'users' => $users]);
     }
 
-    public function deleteUser($id) {
+    public function deleteUser($id)
+    {
         User::clearCached();
         $user = User::find($id);
         if (!$user) {
@@ -30,7 +32,8 @@ class AdminController extends Controller
         return back()->with('success', 'User deleted successfully.');
     }
 
-    public function changeStatus($id) {
+    public function changeStatus($id)
+    {
         User::clearCached();
         $user = User::find($id);
         if (!$user) {

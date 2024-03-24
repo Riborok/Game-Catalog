@@ -1,20 +1,10 @@
-@extends('layouts.profile')
+@extends('layouts.admin')
 
-@section('profile-content')
+@section('admin-caption')
+    All Users
+@endsection
 
-    @if(session('error'))
-        <div class="alert alert-danger" role="alert">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    @if(session('success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    <div class="table-name">All Users</div>
+@section('admin-content')
     <table class="table">
         <tr>
             <th>Email</th>
@@ -24,23 +14,18 @@
         </tr>
         @foreach($users as $current)
             <tr class="{{ $current->id === $user->id ? 'table-primary' : '' }}">
-                <td class="table-cell">{{ $current->email }}</td>
-                <td class="table-cell">{{ $current->name }}</td>
+                <td class="user-table-cell">{{ $current->email }}</td>
+                <td class="user-table-cell">{{ $current->name }}</td>
                 <td><span class="badge rounded-pill {{ $current->admin ? "bg-primary" : "bg-secondary" }}">{{ $current->admin ? "Admin" : "User" }}</span></td>
                 <td>
                     <div class="d-flex">
-                        <form method="POST" action="{{ route('delete.user', ['id' => $current->id]) }}">
+                        <form method="POST" action="{{ route('user-administration.change.status', ['id' => $current->id]) }}" class="flex-grow-1">
                             @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-
-                        <form method="POST" action="{{ route('change.status.user', ['id' => $current->id]) }}" class="flex-grow-1">
-                            @csrf
-                            <button type="submit" class="btn ms-1 w-100 white-space-nowrap {{ $current->admin ? "btn-secondary" : "btn-primary" }}">
+                            <button type="submit" class="btn w-100 white-space-nowrap {{ $current->admin ? "btn-secondary" : "btn-primary" }}">
                                 {{ $current->admin ? "Make user" : "Make admin" }}
                             </button>
                         </form>
+                        <x-btn-delete action="{{ route('user-administration.delete', ['id' => $current->id]) }}" />
                     </div>
                 </td>
             </tr>
