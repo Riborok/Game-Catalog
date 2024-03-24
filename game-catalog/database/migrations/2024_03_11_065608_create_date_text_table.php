@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('date_texts', function (Blueprint $table) {
             $table->id();
-            $table->date('date')->unique();
+            $table->date('date');
             $table->text('text');
             $table->timestamps();
         });

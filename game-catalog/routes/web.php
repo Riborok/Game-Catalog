@@ -25,7 +25,7 @@ Route::post('/profile/register', 'App\Http\Controllers\RegisterController@submit
 Route::post('/profile/login', 'App\Http\Controllers\LoginController@submit')->name('profile.login');
 
 Route::middleware('App\Http\Middleware\AdminMiddleware')->group(function () {
-    Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin');
+    Route::get('/admin', 'App\Http\Controllers\AdminController@userAdministration')->name('user.administration');
     Route::delete('/delete-user/{id}', 'App\Http\Controllers\AdminController@deleteUser')->name('delete.user');
     Route::post('/change-status/{id}', 'App\Http\Controllers\AdminController@changeStatus')->name('change.status.user');
 });

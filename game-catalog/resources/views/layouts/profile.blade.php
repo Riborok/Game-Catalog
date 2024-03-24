@@ -11,11 +11,20 @@
                 <div class="card-header text-bg-dark nav">
                     <a href="{{ route('profile') }}" class="nav-link">Profile</a>
                     @if($user->admin)
-                        <a href="{{ route('admin') }}" class="nav-link">Admin Panel</a>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Admin Panel
+                            </a>
+                            <ul class="dropdown-menu text-bg-dark">
+                                <li><a class="dropdown-item" href="{{ route('user.administration') }}">User Administration</a></li>
+                            </ul>
+                        </div>
                     @endif
                 </div>
                 <div class="card-body">
-                    @yield('profile-content')
+                    <div class="scrollable-table">
+                        @yield('profile-content')
+                    </div>
                 </div>
             </div>
         </div>

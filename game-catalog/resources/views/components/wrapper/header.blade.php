@@ -7,7 +7,7 @@
         </ul>
 
         <div class="dropdown text-end">
-            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="playGif()" onmouseout="stopGif()">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" onmouseover="playGif()" onmouseout="stopGif()">
                 <img id="profile-avatar" src="{{ asset('/profile-avatar.png') }}" alt="user">
             </a>
 
