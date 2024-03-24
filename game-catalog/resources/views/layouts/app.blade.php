@@ -18,10 +18,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-@include('components.header')
+@include('components.wrapper.header')
 <div class="container content">
     @yield('content')
 </div>
-@include('components.footer')
+@include('components.wrapper.footer')
 </body>
 </html>

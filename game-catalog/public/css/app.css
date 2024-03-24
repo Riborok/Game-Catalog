@@ -1,33 +1,35 @@
+.card-header .nav,
 header .nav {
   --bs-nav-link-hover-color: white;
 }
+.card-header .dropdown-item,
+.card-header .nav-link,
+header .dropdown-item,
 header .nav-link {
   color: white;
   transition: color 0.5s, background-color 0.5s, transform 0.5s;
   border-radius: 12px;
+  font-size: 1rem;
 }
+.card-header .dropdown-item:hover,
+.card-header .nav-link:hover,
+header .dropdown-item:hover,
 header .nav-link:hover {
   color: #ffe800;
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-4px);
 }
+.card-header .dropdown-item:active,
+.card-header .nav-link:active,
+header .dropdown-item:active,
 header .nav-link:active {
   color: #838300;
   transform: scale(0.92);
 }
-header .dropdown-menu .dropdown-item {
-  color: white;
-  transition: color 0.5s, background-color 0.5s, transform 0.5s;
-  border-radius: 12px;
-}
-header .dropdown-menu .dropdown-item:hover {
-  color: #ffe800;
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-4px);
-}
-header .dropdown-menu .dropdown-item:active {
-  color: #838300;
-  transform: scale(0.92);
+.card-header .nav-link,
+header .nav-link {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 #profile-avatar {
@@ -78,6 +80,31 @@ footer .icon {
   transform: translateY(3px);
 }
 
+.fixed-table-layout {
+  table-layout: fixed;
+}
+
+.table-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.scrollable-table {
+  max-height: 50vh;
+  overflow-x: auto;
+}
+
+.table-cell {
+  width: 13vw;
+  max-width: 13vw;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.game-card-img-height {
+  height: 55vh;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -87,4 +114,8 @@ body {
 
 .content {
   flex-grow: 1;
+}
+
+.white-space-nowrap {
+  white-space: nowrap;
 }

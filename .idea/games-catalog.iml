@@ -120,8 +120,30 @@
       <excludeFolder url="file://$MODULE_DIR$/game-catalog/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/game-catalog/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/game-catalog/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/public/build" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/2e" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/3a" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/3e" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/41" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/49" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/4e" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/4f" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/71" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/9a" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/a7" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/b4" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/c3" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/d8" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/dd" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/de" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/df" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/e8" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/storage/framework/cache/data/ed" />
+      <excludeFolder url="file://$MODULE_DIR$/game-catalog/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery-3.6.0" level="application" />
   </component>
 </module>

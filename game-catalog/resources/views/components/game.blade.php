@@ -2,7 +2,7 @@
 
 <div class="col-md-4 my-2">
     <div class="card h-100">
-        <img src="{{ $image }}" class="card-img-top img-fluid" alt="{{ $title }}" style="height: 55vh;">
+        <img src="{{ $image }}" class="card-img-top img-fluid game-card-img-height" alt="{{ $title }}">
         <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ $title }}</h5>
             <p class="card-text">{{ $text }}</p>

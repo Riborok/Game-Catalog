@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="card-body text-center">
-                <table class="table table-borderless" style="table-layout: fixed;">
+                <table class="table table-borderless fixed-table-layout">
                     <tr>
                         @foreach (App\Http\Controllers\CalendarController::SHORT_DAYS_OF_WEEK as $day)
                             <th>{{ $day }}</th>

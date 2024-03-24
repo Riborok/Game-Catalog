@@ -3,15 +3,19 @@ $item-hover-color: #ffe800;
 $item-active-color: #838300;
 $item-hover-bg-color: rgba(255, 255, 255, 0.1);
 
+.card-header,
 header {
+
     .nav {
         --bs-nav-link-hover-color: white;
     }
+
+    .dropdown-item,
     .nav-link {
         color: $item-color;
         transition: color 0.5s, background-color 0.5s, transform 0.5s;
         border-radius: 12px;
-
+        font-size: 1rem;
         &:hover {
             color: $item-hover-color;
             background-color: $item-hover-bg-color;
@@ -23,22 +27,9 @@ header {
             transform: scale(0.92);
         }
     }
-    .dropdown-menu {
-        .dropdown-item {
-            color: $item-color;
-            transition: color 0.5s, background-color 0.5s, transform 0.5s;
-            border-radius: 12px;
 
-            &:hover {
-                color: $item-hover-color;
-                background-color: $item-hover-bg-color;
-                transform: translateY(-4px);
-            }
-
-            &:active {
-                color: $item-active-color;
-                transform: scale(0.92);
-            }
-        }
+    .nav-link {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 }

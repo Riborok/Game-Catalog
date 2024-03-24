@@ -3,18 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feature;
-use App\Models\Game;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class AdminController extends Controller
 {
-    public function home()
-    {
-        $features = Feature::all();
-        return view('home', ['features' => $features]);
+    public function index() {
+        $user = Auth::user();
+        $users = User::retrieveCached();
+        return view('admin', ['user' => $user, 'users' => $users]);
     }
-    public function catalog()
-    {
-        $games = Game::all();
-        return view('catalog', ['games' => $games]);
+
+    public function deleteUser($id) {
+        $user = User::find($id);
+        if (!$user) {
+            return back()->with('error', 'User not found.');
+        }
+
+        if ($user->id === Auth::id()) {
+            Auth::logout();
+        }
+
+        $user->delete();
+        User::clearCached();
+        return back()->with('success', 'User deleted successfully.');
+    }
+
+    public function changeStatus($id) {
+        $user = User::find($id);
+        if (!$user) {
+            return back()->with('error', 'User not found.');
+        }
+
+        $user->admin = !$user->admin;
+        $user->save();
+        User::clearCached();
+        return back()->with('success', 'User made admin successfully.');
     }
 }

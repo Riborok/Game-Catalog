@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class DateText extends Model
 {
@@ -16,5 +17,22 @@ class DateText extends Model
     {
         $texts = static::query()->where('date', $date)->pluck('text')->toArray();
         return implode(', ', $texts);
+    }
+
+    public static function retrieveCachedCalendar($year, $month, $callback)
+    {
+        $cacheKey = static::generateCacheKey($year, $month);
+        return Cache::remember($cacheKey, now()->addMinutes(5), $callback);
+    }
+
+    public static function clearCachedCalendar($year, $month)
+    {
+        $cacheKey = static::generateCacheKey($year, $month);
+        Cache::forget($cacheKey);
+    }
+
+    private static function generateCacheKey($year, $month)
+    {
+        return 'calendar_' . $year . '_' . $month;
     }
 }

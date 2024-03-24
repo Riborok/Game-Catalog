@@ -18,7 +18,8 @@ class RegisterController extends Controller
         $user->email = $registerRequest->email;
         $user->password = Hash::make($registerRequest->password);
         $user->save();
-        Auth::login($user);
+        User::clearCached();
+        Auth::login($user, $registerRequest->filled('remember'));
         return redirect()->route('profile');
     }
 }

@@ -2,6 +2,8 @@
 @import 'header/profile-avatar';
 @import 'footer/footer';
 @import 'calendar/calendar';
+@import 'admin/admin';
+@import 'game/game';
 
 body {
     display: flex;
@@ -12,4 +14,8 @@ body {
 
 .content {
     flex-grow: 1;
+}
+
+.white-space-nowrap {
+    white-space: nowrap;
 }

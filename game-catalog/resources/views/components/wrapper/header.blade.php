@@ -1,9 +1,9 @@
 <header class="p-3 text-bg-dark">
     <div class="container d-flex flex-wrap align-items-center justify-content-center">
         <ul class="nav me-auto mb-2 justify-content-center mb-md-0 flex-wrap">
-            <li><a href="{{ route('home') }}" class="nav-link px-2 fs-6">Home</a></li>
-            <li><a href="{{ route('catalog') }}" class="nav-link px-2 fs-6">Catalog</a></li>
-            <li><a href="{{ route('todays-calendar') }}" class="nav-link px-2 fs-6">Calendar</a></li>
+            <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+            <li><a href="{{ route('catalog') }}" class="nav-link">Catalog</a></li>
+            <li><a href="{{ route('todays-calendar') }}" class="nav-link">Calendar</a></li>
         </ul>
 
         <div class="dropdown text-end">
@@ -12,12 +12,12 @@
             </a>
 
             <ul class="dropdown-menu text-bg-dark">
-                <li><a class="dropdown-item fs-6" href="{{ route('profile') }}">Profile</a></li>
+                <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="dropdown-item fs-6">Sign out</button>
+                        <button type="submit" class="dropdown-item">Sign out</button>
                     </form>
                 </li>
             </ul>
