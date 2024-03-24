@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\DateRequest;
+use App\Http\Requests\AddDateRequest;
+use App\Http\Requests\UpdateDateRequest;
 use App\Models\DateText;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class DateAdminController extends Controller
         return view('date-administration', ['user' => $user, 'dates' => $dates]);
     }
 
-    public function updateDate(DateRequest $request, $id)
+    public function updateDate(UpdateDateRequest $request, $id)
     {
         DateText::clearCached();
         $dateText = DateText::find($id);
@@ -30,12 +31,12 @@ class DateAdminController extends Controller
         return back()->with('success', 'Date updated successfully.');
     }
 
-    public function addDate(DateRequest $request)
+    public function addDate(AddDateRequest $request)
     {
         DateText::clearCached();
         $dateText = new DateText();
-        $dateText->date = $request->input('date');
-        $dateText->text = $request->input('text');
+        $dateText->date = $request->input('new-date');
+        $dateText->text = $request->input('new-text');
         $dateText->save();
         return back()->with('success', 'Date added successfully.');
     }

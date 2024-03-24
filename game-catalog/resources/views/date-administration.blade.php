@@ -32,4 +32,23 @@
             </tr>
         @endforeach
     </table>
+
+    <div class="mt-4">
+        <div class="table-name">Add Date</div>
+        <form method="POST" action="{{ route('date-administration.add') }}">
+            @csrf
+            <div class="form-group">
+                <label for="new-date">Date:</label>
+                <input id="new-date" type="date" class="form-control" name="new-date" value="{{ old('new-date') }}" required>
+            </div>
+            <div class="form-group mt-1">
+                <label for="new-text">Text:</label>
+                <x-input-field
+                    name="new-text"
+                    placeholder=""
+                />
+            </div>
+            <button type="submit" class="btn btn-success mt-2">Add</button>
+        </form>
+    </div>
 @endsection

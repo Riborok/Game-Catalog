@@ -12,13 +12,13 @@ class RegisterController extends Controller
 {
     public function submit(RegisterRequest $registerRequest)
     {
+        User::clearCached();
         $user = new User();
 
         $user->name = $registerRequest->name;
         $user->email = $registerRequest->email;
         $user->password = Hash::make($registerRequest->password);
         $user->save();
-        User::clearCached();
         Auth::login($user, $registerRequest->filled('remember'));
         return redirect()->route('profile');
     }
