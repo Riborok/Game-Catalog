@@ -19,7 +19,7 @@ class TextHighlighter
         $text = preg_replace('/\b[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/',
             '<span style="color:red;">$0</span>', $text);
 
-        $text = preg_replace('/\b\d+\b/', '<span style="color:blue;">$0</span>', $text);
+        $text = preg_replace('/(?<![\d.,])\b\d+\b(?![\d.,])/', '<span style="color:blue;">$0</span>', $text);
 
         return $text;
     }
