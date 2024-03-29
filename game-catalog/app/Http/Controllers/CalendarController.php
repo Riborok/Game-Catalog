@@ -39,7 +39,7 @@ class CalendarController extends Controller
             return redirect()->route('calendar', static::normalizeDate($year, $month));
 
         $calendar = $this->generateCalendar($year, $month);
-        return view('calendar', compact('calendar', 'year', 'month'));
+        return TrackingController::trackPages('calendar', compact('calendar', 'year', 'month'));
     }
 
     private function generateCalendar($year, $month) {

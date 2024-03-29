@@ -6,6 +6,8 @@ Route::get('/', 'App\Http\Controllers\PageController@home')->name('home');
 
 Route::get('/catalog', 'App\Http\Controllers\PageController@catalog')->name('catalog');
 
+Route::get('/visited-pages', 'App\Http\Controllers\TrackingController@showVisitedPages')->name('visited-pages');
+
 Route::get('/login', 'App\Http\Controllers\CheckAuthController@showLogin')->name('login');
 
 Route::get('/register', 'App\Http\Controllers\CheckAuthController@showRegister')->name('register');

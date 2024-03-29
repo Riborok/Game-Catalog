@@ -4,6 +4,7 @@
             <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
             <li><a href="{{ route('catalog') }}" class="nav-link">Catalog</a></li>
             <li><a href="{{ route('todays-calendar') }}" class="nav-link">Calendar</a></li>
+            <li><a href="{{ route('visited-pages') }}" class="nav-link">Visited Pages</a></li>
         </ul>
 
         <div class="dropdown text-end">

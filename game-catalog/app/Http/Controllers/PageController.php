@@ -11,12 +11,12 @@ class PageController extends Controller
     public function home()
     {
         $features = Feature::retrieveCached();
-        return view('home', ['features' => $features]);
+        return TrackingController::trackPages('home', ['features' => $features]);
     }
 
     public function catalog()
     {
         $games = Game::retrieveCached();
-        return view('catalog', ['games' => $games]);
+        return TrackingController::trackPages('catalog', ['games' => $games]);
     }
 }

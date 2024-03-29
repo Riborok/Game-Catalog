@@ -14,7 +14,7 @@ class DateAdminController extends Controller
     {
         $user = Auth::user();
         $dates = DateText::retrieveCached();
-        return view('date-administration', ['user' => $user, 'dates' => $dates]);
+        return TrackingController::trackPages('date-administration', ['user' => $user, 'dates' => $dates]);
     }
 
     public function updateDate(UpdateDateRequest $request, $id)
