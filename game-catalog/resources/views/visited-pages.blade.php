@@ -4,6 +4,10 @@
     Visited Pages
 @endsection
 
+@php
+    const PAGE_SIZE = 10;
+@endphp
+
 @section('content')
     <div class="row justify-content-center my-3">
         <div class="col-md-4">
@@ -15,15 +19,21 @@
                     <th>Visited At</th>
                 </tr>
                 </thead>
-                <tbody>
-                @foreach (array_reverse($visitedPages) as $site)
+                <tbody id="visitedPagesBody">
+                @foreach (array_reverse(array_slice($visitedPages, 0, PAGE_SIZE)) as $site)
                     <tr>
                         <td>{{ $site['name'] }}</td>
-                        <td>{{ date('Y-m-d H:i:s', $site['timestamp']) }}</td>
+                        <td>{{ $site['timestamp'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+            <button id="btnShowMore" class="btn btn-primary d-flex mx-auto">Show more</button>
         </div>
     </div>
+
+    <script>
+        window.visitedPages = @json($visitedPages);
+        window.pageSize = @json(PAGE_SIZE);
+    </script>
 @endsection
