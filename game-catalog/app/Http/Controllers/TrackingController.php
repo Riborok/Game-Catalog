@@ -33,7 +33,7 @@ class TrackingController extends Controller
 
     private static function packRequest($name, $params, $visitedPages)
     {
-        return response(view($name, $params))->cookie(static::$KEY, json_encode($visitedPages));
+        return response(view($name, $params))->cookie(static::$KEY, json_encode($visitedPages), 120);
     }
 
     public function showVisitedPages()
