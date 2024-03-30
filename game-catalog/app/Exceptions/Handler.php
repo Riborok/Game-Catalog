@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
@@ -37,6 +38,10 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof NotFoundHttpException) {
             return redirect()->route('home');
+        }
+
+        if ($e instanceof TokenMismatchException) {
+            return redirect()->back()->with('token-error', 'The session has expired. Please try again.');
         }
 
         return parent::render($request, $e);

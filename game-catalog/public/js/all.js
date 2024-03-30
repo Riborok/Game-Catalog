@@ -39,9 +39,9 @@ function showPagesInRange(startIndex, endIndex) {
 function createTableRow(page) {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-                <td>${page.name}</td>
-                <td>${page.timestamp}</td>
-            `;
+        <td>${page.name}</td>
+        <td>${page.timestamp}</td>
+    `;
     return tr;
 }
 
