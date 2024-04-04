@@ -1,38 +1,41 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\DateAdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\UserAdminController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'App\Http\Controllers\PageController@home')->name('home');
+Route::get('/', HomeController::class . '@showHome')->name('home');
+Route::get('/catalog', CatalogController::class . '@showCatalog')->name('catalog');
 
-Route::get('/catalog', 'App\Http\Controllers\PageController@catalog')->name('catalog');
+Route::get('/visited-pages', TrackingController::class . '@showVisitedPages')->name('visited-pages');
 
-Route::get('/visited-pages', 'App\Http\Controllers\TrackingController@showVisitedPages')->name('visited-pages');
-
-Route::get('/login', 'App\Http\Controllers\CheckAuthController@showLogin')->name('login');
-
-Route::get('/register', 'App\Http\Controllers\CheckAuthController@showRegister')->name('register');
-
-Route::get('/profile', 'App\Http\Controllers\CheckAuthController@showProfile')->name('profile');
-
-Route::get('/calendar', 'App\Http\Controllers\CalendarController@showTodaysCalendar')
-    ->name('todays-calendar');
-
-Route::get('/calendar/{year}/{month}', 'App\Http\Controllers\CalendarController@showCalendar')
+Route::get('/calendar', CalendarController::class . '@showTodaysCalendar')->name('todays-calendar');
+Route::get('/calendar/{year}/{month}', CalendarController::class . '@showCalendar')
     ->where(['year' => '-?[0-9]+', 'month' => '-?[0-9]+'])->name('calendar');
 
-Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+Route::get('/login', AuthController::class . '@showLogin')->name('login');
+Route::get('/register', AuthController::class . '@showRegister')->name('register');
+Route::get('/profile', AuthController::class . '@showProfile')->name('profile');
 
-Route::post('/profile/register', 'App\Http\Controllers\RegisterController@submit')->name('profile.register');
+Route::post('/profile/register', RegisterController::class . '@submit')->name('profile.register');
+Route::post('/profile/login', LoginController::class . '@submit')->name('profile.login');
+Route::post('/logout', LoginController::class . '@logout')->name('logout');
 
-Route::post('/profile/login', 'App\Http\Controllers\LoginController@submit')->name('profile.login');
+Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
+    Route::get('/users', UserAdminController::class . '@userAdministration')->name('user-administration');
+    Route::delete('/users/delete/{id}', UserAdminController::class . '@deleteUser')->name('user-administration.delete');
+    Route::post('/users/change-status/{id}', UserAdminController::class . '@changeStatus')->name('user-administration.change.status');
 
-Route::middleware('App\Http\Middleware\AdminMiddleware')->prefix('admin')->group(function () {
-    Route::get('/users', 'App\Http\Controllers\UserAdminController@userAdministration')->name('user-administration');
-    Route::delete('/users/delete/{id}', 'App\Http\Controllers\UserAdminController@deleteUser')->name('user-administration.delete');
-    Route::post('/users/change-status/{id}', 'App\Http\Controllers\UserAdminController@changeStatus')->name('user-administration.change.status');
-
-    Route::get('/dates', 'App\Http\Controllers\DateAdminController@dateAdministration')->name('date-administration');
-    Route::delete('/date-administration/delete/{id}', 'App\Http\Controllers\DateAdminController@deleteDate')->name('date-administration.delete');
-    Route::put('/dates/update/{id}', 'App\Http\Controllers\DateAdminController@updateDate')->name('date-administration.update');
-    Route::post('/dates/add', 'App\Http\Controllers\DateAdminController@addDate')->name('date-administration.add');
+    Route::get('/dates', DateAdminController::class . '@dateAdministration')->name('date-administration');
+    Route::delete('/date-administration/delete/{id}', DateAdminController::class . '@deleteDate')->name('date-administration.delete');
+    Route::put('/dates/update/{id}', DateAdminController::class . '@updateDate')->name('date-administration.update');
+    Route::post('/dates/add', DateAdminController::class . '@addDate')->name('date-administration.add');
 });

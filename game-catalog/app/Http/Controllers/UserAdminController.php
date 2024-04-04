@@ -13,7 +13,7 @@ class UserAdminController extends Controller
     {
         $user = Auth::user();
         $users = User::retrieveCached();
-        return TrackingController::trackPages('user-administration', ['user' => $user, 'users' => $users]);
+        return TrackingController::view('user-administration', ['user' => $user, 'users' => $users]);
     }
 
     public function deleteUser($id)

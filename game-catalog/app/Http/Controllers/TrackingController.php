@@ -12,7 +12,7 @@ class TrackingController extends Controller
     private static $KEY = 'visited_pages';
     private static $DEFAULT = '[]';
 
-    public static function trackPages($name, $params = []) {
+    public static function view($name, $params = []) {
         $visitedPages = static::updateVisitedPages($name);
         return static::packRequest($name, $params, $visitedPages);
     }
