@@ -1,27 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.authorization')
 
 @section('title')
     Login
 @endsection
 
-@section('content')
-    <div class="row justify-content-center my-3">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header text-bg-dark">Login</div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('profile.login') }}">
-                        @csrf
+@section('authorization-content')
+    <x-session-alert-message sessionName="success"/>
+    <form method="POST" action="{{ route('login.request') }}">
+        @csrf
 
-                        @include('components.inputs.input-email')
-                        @include('components.inputs.input-password')
-                        @include('components.inputs.input-remember')
+        @include('components.inputs.input-email')
+        @include('components.inputs.input-password')
 
-                        <button type="submit" class="btn btn-primary">Login</button>
-                        <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
-                    </form>
-                </div>
-            </div>
+        <div class="d-flex justify-content-between align-items-center">
+            @include('components.inputs.input-remember')
+            <a href="{{ route('forgot.password') }}" class="text-decoration-none text-info font-weight-bold">Forgot your password?</a>
         </div>
-    </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
+    </form>
 @endsection

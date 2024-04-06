@@ -20,7 +20,7 @@
 <body>
 @include('components.wrapper.header')
 <div class="container content">
-    @include('components.error-handlers.token-error-handler')
+    <x-session-alert-message sessionName="token-error"/>
     @yield('content')
 </div>
 @include('components.wrapper.footer')

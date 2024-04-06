@@ -15,7 +15,7 @@
         <input type="text" class="form-control" id="status" value="{{ $user->admin ? "Admin" : "User" }}" disabled>
     </div>
     <div class="mt-3">
-        <form method="POST" action="{{ route('logout') }}">
+        <form method="POST" action="{{ route('logout.request') }}">
             @csrf
             <button type="submit" class="btn btn-danger">Leave</button>
         </form>

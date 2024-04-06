@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header text-bg-dark nav">
                     <a href="{{ route('profile') }}" class="nav-link">Profile</a>
-                    @if($user->admin)
+                    @if ($user->admin)
                         <div class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                 Admin Panel

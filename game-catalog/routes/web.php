@@ -4,9 +4,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DateAdminController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Middleware\AdminMiddleware;
@@ -25,9 +27,16 @@ Route::get('/login', AuthController::class . '@showLogin')->name('login');
 Route::get('/register', AuthController::class . '@showRegister')->name('register');
 Route::get('/profile', AuthController::class . '@showProfile')->name('profile');
 
-Route::post('/profile/register', RegisterController::class . '@submit')->name('profile.register');
-Route::post('/profile/login', LoginController::class . '@submit')->name('profile.login');
-Route::post('/logout', LoginController::class . '@logout')->name('logout');
+Route::post('/login', LoginController::class . '@submit')->name('login.request');
+Route::post('/register', RegisterController::class . '@submit')->name('register.request');
+Route::post('/logout', LoginController::class . '@logout')->name('logout.request');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/forgot-password', ForgotPasswordController::class . '@showForgotPassword')->name('forgot.password');
+    Route::post('/forgot-password', ForgotPasswordController::class . '@submit')->name('forgot.password.request');
+    Route::get('/reset-password', ResetPasswordController::class . '@showResetPassword')->name('password.reset');
+    Route::post('/reset-password', ResetPasswordController::class . '@submit')->name('password.reset.request');
+});
 
 Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
     Route::get('/users', UserAdminController::class . '@userAdministration')->name('user-administration');
@@ -35,7 +44,7 @@ Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
     Route::post('/users/change-status/{id}', UserAdminController::class . '@changeStatus')->name('user-administration.change.status');
 
     Route::get('/dates', DateAdminController::class . '@dateAdministration')->name('date-administration');
-    Route::delete('/date-administration/delete/{id}', DateAdminController::class . '@deleteDate')->name('date-administration.delete');
+    Route::delete('/dates/delete/{id}', DateAdminController::class . '@deleteDate')->name('date-administration.delete');
     Route::put('/dates/update/{id}', DateAdminController::class . '@updateDate')->name('date-administration.update');
     Route::post('/dates/add', DateAdminController::class . '@addDate')->name('date-administration.add');
 });
