@@ -134,3 +134,8 @@ body {
 .white-space-nowrap {
   white-space: nowrap;
 }
+
+.alert ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}

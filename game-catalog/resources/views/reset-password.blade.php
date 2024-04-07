@@ -6,6 +6,7 @@
 
 @section('authorization-content')
     <x-session-alert-message sessionName="error"/>
+    <x-all-errors-alert />
     <form method="POST" action="{{ route('password.reset.request') }}">
         @csrf
         <input type="hidden" name="token" value="{{ $request->token }}">
