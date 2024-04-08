@@ -28,7 +28,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <button id="btnShowMore" class="btn btn-primary d-flex mx-auto">Show more</button>
+            <button id="btnShowMore" class="btn btn-primary d-none mx-auto">Show more</button>
         </div>
     </div>
 
@@ -36,4 +36,5 @@
         window.visitedPages = @json($visitedPages);
         window.pageSize = @json(PAGE_SIZE);
     </script>
+    <script src="{{ asset('/js/visitedPages.js') }}" defer></script>
 @endsection

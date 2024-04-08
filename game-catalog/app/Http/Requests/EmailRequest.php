@@ -22,7 +22,6 @@ class EmailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'receiver' => ['required', 'string', 'email', 'max:255'],
             'text' => ['required', 'string', 'max:255']
         ];
     }

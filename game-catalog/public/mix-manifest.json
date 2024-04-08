@@ -1,4 +1,6 @@
 {
+    "/js/send-email.js": "/js/send-email.js",
+    "/js/visitedPages.js": "/js/visitedPages.js",
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.bundle.js": "/js/bootstrap.bundle.js",
     "/css/bootstrap.css": "/css/bootstrap.css",
