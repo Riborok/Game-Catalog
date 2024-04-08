@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DateAdminController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -47,4 +48,7 @@ Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
     Route::delete('/dates/delete/{id}', DateAdminController::class . '@deleteDate')->name('date-administration.delete');
     Route::put('/dates/update/{id}', DateAdminController::class . '@updateDate')->name('date-administration.update');
     Route::post('/dates/add', DateAdminController::class . '@addDate')->name('date-administration.add');
+
+    Route::get('/send-email', EmailController::class . '@showEmailSender')->name('email-administration');
+    Route::post('/send-email', EmailController::class . '@send')->name('email-administration.request');
 });

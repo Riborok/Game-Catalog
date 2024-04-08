@@ -18,6 +18,7 @@
                             <ul class="dropdown-menu text-bg-dark">
                                 <li><a class="dropdown-item" href="{{ route('user-administration') }}">User Administration</a></li>
                                 <li><a class="dropdown-item" href="{{ route('date-administration') }}">Date Administration</a></li>
+                                <li><a class="dropdown-item" href="{{ route('email-administration') }}">Send Email</a></li>
                             </ul>
                         </div>
                     @endif
