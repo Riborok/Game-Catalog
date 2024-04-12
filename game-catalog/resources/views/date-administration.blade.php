@@ -35,7 +35,7 @@
 
     <div class="mt-4">
         <div class="profile-caption">@lang('date-administration.add-date')</div>
-        <form method="POST" action="{{ route('date-administration.add') }}">
+        <form method="POST" class="mt-1" action="{{ route('date-administration.add') }}">
             @csrf
             <div class="form-group">
                 <label for="new-date">@lang('date-administration.date')</label>

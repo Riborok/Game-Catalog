@@ -49,7 +49,7 @@ class UserAdminController extends Controller
         if ($user->save()) {
             return back()->with('success', trans('session.user-status-changed', [
                 'name' => $user->name,
-                'status' => trans('session.' . ($user->admin ? 'admin' : 'user'))
+                'status' => trans_choice('user-status.' . ($user->admin ? 'admin' : 'user'), 2)
             ]));
         } else {
             return back()->with('error', trans('session.user-status-not-changed'));

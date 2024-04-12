@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-bg-dark nav">
-                    <a href="{{ route('profile') }}" class="nav-link">Profile</a>
+                    <a href="{{ route('profile') }}" class="nav-link">@lang('title.profile')</a>
                     @if ($user->admin)
                         <div class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">

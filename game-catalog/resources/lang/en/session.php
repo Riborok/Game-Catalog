@@ -1,5 +1,4 @@
 <?php
-
 return [
     'session-expired' => 'The session has expired. Please try again.',
 
@@ -8,8 +7,6 @@ return [
     'user-status-not-changed' => 'Failed to change user status.',
     'user-deleted' => 'User deleted successfully.',
     'user-status-changed' => ':name made :status successfully.',
-    'admin' => 'admin',
-    'user' => 'user',
 
     'date-not-found' => 'Date not found.',
     'date-not-updated' => 'Failed to update date.',

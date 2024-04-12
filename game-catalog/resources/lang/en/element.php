@@ -14,4 +14,6 @@ return [
     'actions' => 'Actions',
     'send-reset-link' => 'Send Reset Link',
     'text' => 'Text',
+    'logout' => 'Logout',
+    'make' => 'Make',
 ];

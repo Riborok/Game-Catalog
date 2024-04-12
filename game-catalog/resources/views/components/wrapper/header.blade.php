@@ -33,7 +33,7 @@
                 <li>
                     <form method="POST" action="{{ route('logout.request') }}">
                         @csrf
-                        <button type="submit" class="dropdown-item">@lang('title.logout')</button>
+                        <button type="submit" class="dropdown-item">@lang('element.logout')</button>
                     </form>
                 </li>
             </ul>
