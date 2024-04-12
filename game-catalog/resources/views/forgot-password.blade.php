@@ -1,7 +1,7 @@
 @extends('layouts.authorization')
 
 @section('title')
-    Forgot Password
+    @lang('title.forgot-password')
 @endsection
 
 @section('authorization-content')
@@ -10,7 +10,7 @@
     <form method="POST" action="{{ route('forgot.password.request') }}">
         @csrf
         @include('components.inputs.input-email')
-        <button type="submit" class="btn btn-primary">Send Reset Link</button>
-        <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
+        <button type="submit" class="btn btn-primary">@lang('element.send-reset-link')</button>
+        <a href="{{ route('login') }}" class="btn btn-secondary">@lang('title.login')</a>
     </form>
 @endsection

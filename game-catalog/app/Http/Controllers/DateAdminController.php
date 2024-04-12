@@ -14,7 +14,7 @@ class DateAdminController extends Controller
     {
         $user = Auth::user();
         $dates = DateText::retrieveCached();
-        return TrackingController::view('date-administration', ['user' => $user, 'dates' => $dates]);
+        return VisitedPages::view('date-administration', ['user' => $user, 'dates' => $dates]);
     }
 
     public function updateDate(UpdateDateRequest $request, $id)
@@ -22,14 +22,18 @@ class DateAdminController extends Controller
         DateText::clearCached();
         $dateText = DateText::find($id);
         if (!$dateText) {
-            return back()->with('error', 'Date not found.');
+            return back()->with('error', trans('session.date-not-found'));
         }
 
         $dateText->date = $request->input('date');
         $dateText->text = $request->input('text');
-        $dateText->save();
-        DateText::clearCachedCalendar(Carbon::parse($dateText->date));
-        return back()->with('success', 'Date updated successfully.');
+
+        if ($dateText->save()) {
+            DateText::clearCachedCalendar(Carbon::parse($dateText->date));
+            return back()->with('success', trans('session.date-updated-successfully'));
+        } else {
+            return back()->with('error', trans('session.date-not-updated'));
+        }
     }
 
     public function addDate(AddDateRequest $request)
@@ -38,9 +42,13 @@ class DateAdminController extends Controller
         $dateText = new DateText();
         $dateText->date = $request->input('new-date');
         $dateText->text = $request->input('new-text');
-        $dateText->save();
-        DateText::clearCachedCalendar(Carbon::parse($dateText->date));
-        return back()->with('success', 'Date added successfully.');
+
+        if ($dateText->save()) {
+            DateText::clearCachedCalendar(Carbon::parse($dateText->date));
+            return back()->with('success', trans('session.date-added-successfully'));
+        } else {
+            return back()->with('error', trans('session.date-not-added'));
+        }
     }
 
     public function deleteDate($id)
@@ -48,11 +56,14 @@ class DateAdminController extends Controller
         DateText::clearCached();
         $dateText = DateText::find($id);
         if (!$dateText) {
-            return back()->with('error', 'Date not found.');
+            return back()->with('error', trans('session.date-not-found'));
         }
 
-        $dateText->delete();
-        DateText::clearCachedCalendar(Carbon::parse($dateText->date));
-        return back()->with('success', 'Date deleted successfully.');
+        if ($dateText->delete()) {
+            DateText::clearCachedCalendar(Carbon::parse($dateText->date));
+            return back()->with('success', trans('session.date-deleted-successfully'));
+        } else {
+            return back()->with('error', trans('session.date-not-deleted'));
+        }
     }
 }

@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 
 @section('admin-caption')
-    All Users
+    @lang('title.user-administration')
 @endsection
 
 @section('admin-content')
     <table class="table">
         <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>@lang('element.email-address')</th>
+            <th>@lang('element.name')</th>
+            <th>@lang('element.status')</th>
+            <th>@lang('element.actions')</th>
         </tr>
         @foreach($users as $current)
             <tr class="{{ $current->id === $user->id ? 'table-primary' : '' }}">

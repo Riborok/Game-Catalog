@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Game Catalog
+    @lang('title.catalog')
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
         @foreach ($games as $game)
             <x-game
                 title="{{ $game->title }}"
-                text="{{ $game->description }}"
+                description="{{ $game->description }}"
                 image="{{ $game->image }}"
                 link="{{ $game->link }}"
             />

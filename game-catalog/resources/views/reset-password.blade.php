@@ -1,7 +1,7 @@
 @extends('layouts.authorization')
 
 @section('title')
-    Reset Password
+    @lang('title.reset-password')
 @endsection
 
 @section('authorization-content')
@@ -13,6 +13,6 @@
         <input type="hidden" name="email" value="{{ $request->email }}">
         @include('components.inputs.input-password')
         @include('components.inputs.input-password-confirm')
-        <button type="submit" class="btn btn-primary">Reset Password</button>
+        <button type="submit" class="btn btn-primary">@lang('title.reset-password')</button>
     </form>
 @endsection

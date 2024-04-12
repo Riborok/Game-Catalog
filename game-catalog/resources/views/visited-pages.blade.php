@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Visited Pages
+    @lang('title.visited-pages')
 @endsection
 
 @php
@@ -11,24 +11,24 @@
 @section('content')
     <div class="row justify-content-center my-3">
         <div class="col-md-4">
-            <div class="text-center profile-caption">Visited Pages</div>
+            <div class="text-center profile-caption mb-1">@lang('title.visited-pages')</div>
             <table class="table table-bordered fixed-table-layout">
                 <thead>
                 <tr>
-                    <th>Page</th>
-                    <th>Visited At</th>
+                    <th>@lang('visited-pages.page')</th>
+                    <th>@lang('visited-pages.visitedAt')</th>
                 </tr>
                 </thead>
                 <tbody id="visitedPagesBody">
                 @foreach (array_reverse(array_slice($visitedPages, 0, PAGE_SIZE)) as $site)
                     <tr>
-                        <td>{{ $site['name'] }}</td>
+                        <td>@lang('title.' . $site['name'])</td>
                         <td>{{ $site['timestamp'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            <button id="btnShowMore" class="btn btn-primary d-none mx-auto">Show more</button>
+            <button id="btnShowMore" class="btn btn-primary d-none mx-auto">@lang('element.show-more')</button>
         </div>
     </div>
 

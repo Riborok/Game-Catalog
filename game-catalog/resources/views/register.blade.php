@@ -1,7 +1,7 @@
 @extends('layouts.authorization')
 
 @section('title')
-    Register
+    @lang('title.register')
 @endsection
 
 @section('authorization-content')
@@ -14,7 +14,7 @@
         @include('components.inputs.input-password-confirm')
         @include('components.inputs.input-remember')
 
-        <button type="submit" class="btn btn-primary">Register</button>
-        <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
+        <button type="submit" class="btn btn-primary">@lang('title.register')</button>
+        <a href="{{ route('login') }}" class="btn btn-secondary">@lang('title.login')</a>
     </form>
 @endsection

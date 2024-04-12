@@ -26,13 +26,13 @@ class LoginController extends Controller
 
         if (!$user) {
             return back()->withErrors([
-                'email' => 'There is no user with this email address.',
+                'email' => trans('error.email-not-found'),
             ])->withInput();
         }
 
         if (!Auth::attempt($credentials, $loginRequest->filled('remember'))) {
             return back()->withErrors([
-                'password' => 'The password is incorrect.',
+                'password' => trans('error.incorrect-password'),
             ])->withInput();
         }
 

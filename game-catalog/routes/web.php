@@ -7,18 +7,21 @@ use App\Http\Controllers\DateAdminController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\VisitedPages;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/lang/{lang}', LanguageController::class . '@changeLanguage')->name('change-language');
+
 Route::get('/', HomeController::class . '@showHome')->name('home');
 Route::get('/catalog', CatalogController::class . '@showCatalog')->name('catalog');
 
-Route::get('/visited-pages', TrackingController::class . '@showVisitedPages')->name('visited-pages');
+Route::get('/visited-pages', VisitedPages::class . '@showVisitedPages')->name('visited-pages');
 
 Route::get('/calendar', CalendarController::class . '@showTodaysCalendar')->name('todays-calendar');
 Route::get('/calendar/{year}/{month}', CalendarController::class . '@showCalendar')

@@ -12,7 +12,7 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect()->route('profile');
         } else {
-            return TrackingController::view('login');
+            return VisitedPages::view('login');
         }
     }
 
@@ -21,7 +21,7 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect()->route('profile');
         } else {
-            return TrackingController::view('register');
+            return VisitedPages::view('register');
         }
     }
 
@@ -29,7 +29,7 @@ class AuthController extends Controller
     {
         if (Auth::check()) {
             $user = Auth::user();
-            return TrackingController::view('profile', ['user' => $user]);
+            return VisitedPages::view('profile', ['user' => $user]);
         } else {
             return redirect()->route('login');
         }

@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\ResponseFactory;
 use Illuminate\Support\Facades\Cookie;
 
-class TrackingController extends Controller
+class VisitedPages extends Controller
 {
     private static $KEY = 'visited_pages';
     private static $DEFAULT = '[]';

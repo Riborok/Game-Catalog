@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Introduction to Games
+    @lang('title.home')
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Profile {{ $user->name }}
+    @lang('title.profile') {{ $user->name }}
 @endsection
 
 @section('content')
@@ -13,12 +13,12 @@
                     @if ($user->admin)
                         <div class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                Admin Panel
+                                @lang('admin.admin-panel')
                             </a>
                             <ul class="dropdown-menu text-bg-dark">
-                                <li><a class="dropdown-item" href="{{ route('user-administration') }}">User Administration</a></li>
-                                <li><a class="dropdown-item" href="{{ route('date-administration') }}">Date Administration</a></li>
-                                <li><a class="dropdown-item" href="{{ route('email-administration') }}">Send Email</a></li>
+                                <li><a class="dropdown-item" href="{{ route('user-administration') }}">@lang('title.user-administration')</a></li>
+                                <li><a class="dropdown-item" href="{{ route('date-administration') }}">@lang('title.date-administration')</a></li>
+                                <li><a class="dropdown-item" href="{{ route('email-administration') }}">@lang('title.send-email')</a></li>
                             </ul>
                         </div>
                     @endif

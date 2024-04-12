@@ -10,7 +10,7 @@ class ForgotPasswordController extends Controller
 {
     public function showForgotPassword()
     {
-        return TrackingController::view('forgot-password');
+        return VisitedPages::view('forgot-password');
     }
 
     public function submit(ForgotPasswordRequest $request) {

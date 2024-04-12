@@ -12,7 +12,7 @@ class ResetPasswordController extends Controller
 {
     public function showResetPassword(Request $request)
     {
-        return TrackingController::view('reset-password', ['request' => $request]);
+        return VisitedPages::view('reset-password', ['request' => $request]);
     }
 
     public function submit(ResetPasswordRequest $request) {

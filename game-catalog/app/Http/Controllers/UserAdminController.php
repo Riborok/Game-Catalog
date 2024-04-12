@@ -13,7 +13,7 @@ class UserAdminController extends Controller
     {
         $user = Auth::user();
         $users = User::retrieveCached();
-        return TrackingController::view('user-administration', ['user' => $user, 'users' => $users]);
+        return VisitedPages::view('user-administration', ['user' => $user, 'users' => $users]);
     }
 
     public function deleteUser($id)
@@ -21,15 +21,18 @@ class UserAdminController extends Controller
         User::clearCached();
         $user = User::find($id);
         if (!$user) {
-            return back()->with('error', 'User not found.');
+            return back()->with('error', trans('session.user-not-found'));
         }
 
         if ($user->id === Auth::id()) {
             Auth::logout();
         }
 
-        $user->delete();
-        return back()->with('success', 'User deleted successfully.');
+        if ($user->delete()) {
+            return back()->with('success', trans('session.user-deleted'));
+        } else {
+            return back()->with('error', trans('session.user-not-deleted'));
+        }
     }
 
     public function changeStatus($id)
@@ -37,11 +40,19 @@ class UserAdminController extends Controller
         User::clearCached();
         $user = User::find($id);
         if (!$user) {
-            return back()->with('error', 'User not found.');
+            return back()->with('error', trans('session.user-not-found'));
         }
 
         $user->admin = !$user->admin;
         $user->save();
-        return back()->with('success', 'User made ' . ($user->admin ? 'admin' : 'user') . ' successfully.');
+
+        if ($user->save()) {
+            return back()->with('success', trans('session.user-status-changed', [
+                'name' => $user->name,
+                'status' => trans('session.' . ($user->admin ? 'admin' : 'user'))
+            ]));
+        } else {
+            return back()->with('error', trans('session.user-status-not-changed'));
+        }
     }
 }

@@ -14,7 +14,7 @@ class EmailController extends Controller
     {
         $users = User::retrieveCached();
         $user = Auth::user();
-        return TrackingController::view('send-email', ['user' => $user, 'users' => $users]);
+        return VisitedPages::view('send-email', ['user' => $user, 'users' => $users]);
     }
 
     public function send(EmailRequest $request)
@@ -29,29 +29,32 @@ class EmailController extends Controller
         $successfulRecipients = [];
 
         foreach ($users as $user) {
-            $objDemo = new \stdClass();
-            $objDemo->text = $request->text;
-            $objDemo->receiver = $user->email;
-            if (Mail::to($objDemo->receiver)->send(new EmailSender($objDemo)))
-                $successfulRecipients[] = $objDemo->receiver;
+            if (static::sendEmail($user->email, $request->text)) {
+                $successfulRecipients[] = $user->email;
+            }
         }
 
         if (!empty($successfulRecipients)) {
-            $successMessage = 'Message sent successfully to: ' . implode(', ', $successfulRecipients);
-            return redirect()->back()->with('success', $successMessage)->withInput();
+            return redirect()->back()->with('success',
+                trans('session.message-sent-successfully',
+                    ['receiver' => implode(', ', $successfulRecipients)]))->withInput();
         } else
-            return redirect()->back()->with('error', 'Failed to send message to any recipient')->withInput();
+            return redirect()->back()->with('error', trans('session.something-went-wrong'))->withInput();
     }
 
     private static function sendToUser(EmailRequest $request) {
-        $objDemo = new \stdClass();
-        $objDemo->text = $request->text;
-        $objDemo->receiver = $request->receiver;
-        $result = Mail::to($objDemo->receiver)->send(new EmailSender($objDemo));
-        if ($result) {
-            return redirect()->back()->with('success', 'Message sent successfully!')->withInput();
+        if (static::sendEmail($request->receiver, $request->text)) {
+            return redirect()->back()->with('success',
+                trans('session.message-sent-successfully', ['receiver' => $request->receiver]))->withInput();
         } else {
-            return redirect()->back()->with('error', 'Something went wrong! Please try again!')->withInput();
+            return redirect()->back()->with('error', trans('session.something-went-wrong'))->withInput();
         }
+    }
+
+    private static function sendEmail($receiver, $text) {
+        $objDemo = new \stdClass();
+        $objDemo->receiver = $receiver;
+        $objDemo->text = $text;
+        return Mail::to($receiver)->send(new EmailSender($objDemo));
     }
 }

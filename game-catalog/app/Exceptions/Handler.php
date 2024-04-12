@@ -41,7 +41,7 @@ class Handler extends ExceptionHandler
         }
 
         if ($e instanceof TokenMismatchException) {
-            return redirect()->back()->with('token-error', 'The session has expired. Please try again.');
+            return redirect()->back()->with('token-error', trans('session.session-expired'));
         }
 
         return parent::render($request, $e);

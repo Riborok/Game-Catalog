@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Cache;
 
 class CalendarController extends Controller
 {
-    public const SHORT_DAYS_OF_WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
     private const MIN_MONTH = 1;
     private const MAX_MONTH = 12;
 
@@ -39,7 +37,7 @@ class CalendarController extends Controller
             return redirect()->route('calendar', static::normalizeDate($year, $month));
 
         $calendar = $this->generateCalendar($year, $month);
-        return TrackingController::view('calendar', compact('calendar', 'year', 'month'));
+        return VisitedPages::view('calendar', compact('calendar', 'year', 'month'));
     }
 
     private function generateCalendar($year, $month) {
@@ -56,7 +54,7 @@ class CalendarController extends Controller
     }
 
     private function fillWeeks($currentDate, &$calendar, $week_count) {
-        while (count($calendar) < $week_count * count(static::SHORT_DAYS_OF_WEEK)) {
+        while (count($calendar) < $week_count * count(Carbon::getDays())) {
             $calendar[] = ['date' => $currentDate->copy()];
             $currentDate->addDay();
         }

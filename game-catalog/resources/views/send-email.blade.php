@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('admin-caption')
-    Send Email
+    @lang('title.send-email')
 @endsection
 
 @section('admin-content')
     <form method="POST" action="{{ route('email-administration.request') }}">
         @csrf
         <div class="form-group mb-3">
-            <label for="receiver">Receiver:</label>
+            <label for="receiver">@lang('send-email.receiver'):</label>
             <select id="receiver" name="receiver" class="form-control @error('receiver') is-invalid @enderror">
                 @foreach($users as $curr)
                     <option value="{{ $curr->email }}">{{ $curr->email }}</option>
@@ -19,7 +19,7 @@
             @enderror
         </div>
         <div class="form-group mb-2">
-            <label for="text">Text:</label>
+            <label for="text">@lang('element.text'):</label>
             <textarea id="text" name="text" class="form-control @error('text') is-invalid @enderror" rows="4"></textarea>
             @error('text')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -28,10 +28,10 @@
         <div class="form-check mb-1">
             <input class="form-check-input" type="checkbox" id="send-to-all" name="send_to_all">
             <label class="form-check-label" for="send-to-all">
-                Send to all users
+                @lang('send-email.send-to-all-users')
             </label>
         </div>
-        <button type="submit" class="btn btn-primary">Send Email</button>
+        <button type="submit" class="btn btn-primary">@lang('title.send-email')</button>
     </form>
 
     <script src="{{ asset('/js/send-email.js') }}" defer></script>
