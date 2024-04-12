@@ -14,8 +14,16 @@
         </tr>
         @foreach($users as $current)
             <tr class="{{ $current->id === $user->id ? 'table-primary' : '' }}">
-                <td class="user-table-cell">{{ $current->email }}</td>
-                <td class="user-table-cell">{{ $current->name }}</td>
+                <td class="align-middle">
+                    <div class="user-table-cell">
+                        {{ $current->email }}
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <div class="user-table-cell">
+                        {{ $current->name }}
+                    </div>
+                </td>
                 <td><span class="badge rounded-pill {{ $current->admin ? "bg-primary" : "bg-secondary" }}">{{App\Utils\Other::mb_ucfirst(trans_choice('user-status.' . ($current->admin ? 'admin' : 'user'), 1))}}</span></td>
                 <td>
                     <div class="d-flex">
