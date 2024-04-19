@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody id="visitedPagesBody">
-                @foreach (array_reverse(array_slice($visitedPages, 0, PAGE_SIZE)) as $site)
+                @foreach (array_slice($visitedPages, 0, PAGE_SIZE) as $site)
                     <tr>
                         <td>@lang('title.' . $site['name'])</td>
                         <td>{{ $site['timestamp'] }}</td>
