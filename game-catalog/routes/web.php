@@ -11,8 +11,8 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\VisitedPages;
 use App\Http\Controllers\UserAdminController;
+use App\Http\Controllers\VisitedPages;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 

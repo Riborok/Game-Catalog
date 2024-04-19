@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Features\CachesFeatures;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Cache;
 
 class Feature extends Model
 {

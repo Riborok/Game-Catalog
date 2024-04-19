@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\DateText;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Cache;
 
 class CalendarController extends Controller
 {

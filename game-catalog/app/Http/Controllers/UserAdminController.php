@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DateText;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserAdminController extends Controller

@@ -2,11 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Routing\ResponseFactory;
-use Illuminate\Support\Facades\Cookie;
-
 class VisitedPages extends Controller
 {
     private static $KEY = 'visited_pages';
