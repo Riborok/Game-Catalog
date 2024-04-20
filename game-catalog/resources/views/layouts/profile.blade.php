@@ -20,6 +20,7 @@
                                 <li><a class="dropdown-item" href="{{ route('home-administration') }}">@lang('title.home-administration')</a></li>
                                 <li><a class="dropdown-item" href="{{ route('catalog-administration') }}">@lang('title.catalog-administration')</a></li>
                                 <li><a class="dropdown-item" href="{{ route('date-administration') }}">@lang('title.date-administration')</a></li>
+                                <li><a class="dropdown-item" href="{{ route('statistics') }}">@lang('title.statistics')</a></li>
                                 <li><a class="dropdown-item" href="{{ route('email-administration') }}">@lang('title.send-email')</a></li>
                             </ul>
                         </div>

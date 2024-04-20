@@ -1,14 +1,23 @@
 .user-cell,
 .img-cell,
+.statistics-cell,
 table td {
     min-width: 150px;
 }
 
-.user-cell {
+.user-cell,
+.statistics-cell {
     flex: 1;
     overflow-x: auto;
-    max-width: 9vw;
     white-space: nowrap;
+}
+
+.user-cell {
+    max-width: 9vw;
+}
+
+.statistics-cell {
+    max-width: 14vw;
 }
 
 .img-cell {

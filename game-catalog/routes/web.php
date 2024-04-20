@@ -13,6 +13,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\VisitedPages;
 use App\Http\Middleware\AdminMiddleware;
@@ -66,4 +67,6 @@ Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
 
     Route::get('/send-email', EmailController::class . '@showEmailSender')->name('email-administration');
     Route::post('/send-email', EmailController::class . '@send')->name('email-administration.request');
+
+    Route::get('/statistics', StatisticsController::class . '@showStatistics')->name('statistics');
 });

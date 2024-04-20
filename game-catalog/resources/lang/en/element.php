@@ -23,4 +23,8 @@ return [
     'order' => 'Order',
     'description' => 'Description',
     'link' => 'Link',
+    'ip' => 'IP address',
+    'os' => 'OS',
+    'browser' => 'Browser',
+    'unknown' => 'Unknown',
 ];

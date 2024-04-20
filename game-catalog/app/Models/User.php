@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->admin;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 }

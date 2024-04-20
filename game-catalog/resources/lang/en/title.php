@@ -14,4 +14,5 @@ return [
     'user-administration' => 'User Administration',
     'home-administration' => 'Home Administration',
     'catalog-administration' => 'Catalog Administration',
+    'statistics' => 'Statistics',
 ];

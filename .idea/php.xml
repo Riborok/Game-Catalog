@@ -148,6 +148,9 @@
       <path value="$PROJECT_DIR$/game-catalog/vendor/spatie/laravel-ignition" />
       <path value="$PROJECT_DIR$/game-catalog/vendor/spatie/ignition" />
       <path value="$PROJECT_DIR$/game-catalog/vendor/stichoza/google-translate-php" />
+      <path value="$PROJECT_DIR$/game-catalog/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/game-catalog/vendor/jenssegers/agent" />
+      <path value="$PROJECT_DIR$/game-catalog/vendor/mobiledetect/mobiledetectlib" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
