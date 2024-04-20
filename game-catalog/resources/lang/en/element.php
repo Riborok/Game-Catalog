@@ -21,4 +21,6 @@ return [
     'title' => 'Title',
     'image' => 'Image',
     'order' => 'Order',
+    'description' => 'Description',
+    'link' => 'Link',
 ];

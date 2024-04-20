@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\CatalogAdminController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DateAdminController;
 use App\Http\Controllers\EmailController;
@@ -53,10 +54,15 @@ Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
     Route::put('/dates/update/{id}', DateAdminController::class . '@update')->name('date-administration.update');
     Route::post('/dates/add', DateAdminController::class . '@add')->name('date-administration.add');
 
-    Route::get('/home', HomeAdminController::class . '@showHomeAdministration')->name('home-administration');
-    Route::delete('/home/delete/{id}', HomeAdminController::class . '@delete')->name('home-administration.delete');
-    Route::put('/home/update/{id}', HomeAdminController::class . '@update')->name('home-administration.update');
-    Route::post('/home/add', HomeAdminController::class . '@add')->name('home-administration.add');
+    Route::get('/feature', HomeAdminController::class . '@showHomeAdministration')->name('home-administration');
+    Route::delete('/feature/delete/{id}', HomeAdminController::class . '@delete')->name('home-administration.delete');
+    Route::put('/feature/update/{id}', HomeAdminController::class . '@update')->name('home-administration.update');
+    Route::post('/feature/add', HomeAdminController::class . '@add')->name('home-administration.add');
+
+    Route::get('/game', CatalogAdminController::class . '@showCatalogAdministration')->name('catalog-administration');
+    Route::delete('/game/delete/{id}', CatalogAdminController::class . '@delete')->name('catalog-administration.delete');
+    Route::put('/game/update/{id}', CatalogAdminController::class . '@update')->name('catalog-administration.update');
+    Route::post('/game/add', CatalogAdminController::class . '@add')->name('catalog-administration.add');
 
     Route::get('/send-email', EmailController::class . '@showEmailSender')->name('email-administration');
     Route::post('/send-email', EmailController::class . '@send')->name('email-administration.request');

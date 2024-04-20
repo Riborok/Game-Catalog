@@ -2,5 +2,6 @@
 return [
     'date' => 'Date',
     'user' => 'User',
-    'feature' => 'Feature'
+    'feature' => 'Feature',
+    'game' => 'Game',
 ];
