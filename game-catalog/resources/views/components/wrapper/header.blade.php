@@ -23,8 +23,10 @@
         </ul>
 
         <div class="dropdown text-end">
-            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" onmouseover="playGif()" onmouseout="stopGif()">
-                <img id="profile-avatar" src="{{ asset('/profile-avatar.png') }}" alt="user">
+            <a href="#" id="profile-avatar-link" data-bs-toggle="dropdown">
+                <div id="profile-avatar-circle">
+                    <object id="profile-avatar-obj" data="{{ asset('/profile-avatar.svg') }}" type="image/svg+xml"></object>
+                </div>
             </a>
 
             <ul class="dropdown-menu text-bg-dark">
@@ -39,4 +41,6 @@
             </ul>
         </div>
     </div>
+
+    <script src="{{ asset('/js/profile-avatar.js') }}" defer></script>
 </header>

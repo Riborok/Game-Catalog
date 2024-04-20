@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DateAdminController extends Controller
 {
-    public function dateAdministration()
+    public function showDateAdministration()
     {
         $user = Auth::user();
         $dates = DateText::retrieveCached();

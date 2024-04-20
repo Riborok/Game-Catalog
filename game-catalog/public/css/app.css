@@ -32,11 +32,21 @@ header .nav-link {
   padding-right: 0.5rem;
 }
 
-#profile-avatar {
+#profile-avatar-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   background-color: white;
-  width: 2.3rem;
-  height: 2.3rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  overflow: hidden;
+}
+
+#profile-avatar-obj {
+  width: 75%;
+  height: 100%;
+  pointer-events: none;
 }
 
 footer {

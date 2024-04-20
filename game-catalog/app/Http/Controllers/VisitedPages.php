@@ -16,8 +16,7 @@ class VisitedPages extends Controller
     {
         $visitedPages = static::visitedPages();
         array_unshift($visitedPages, ['name' => $name, 'timestamp' => date('Y-m-d H:i:s', time())]);
-        $visitedPages = array_slice($visitedPages, -42);
-        return $visitedPages;
+        return array_slice($visitedPages, 0, 35);
     }
 
     private static function visitedPages()

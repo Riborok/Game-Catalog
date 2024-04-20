@@ -1,8 +1,8 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-/*!**********************************************!*\
-  !*** ./resources/js/page-js/visitedPages.js ***!
-  \**********************************************/
+/*!***********************************************!*\
+  !*** ./resources/js/page-js/visited-pages.js ***!
+  \***********************************************/
 var visitedPages = window.visitedPages;
 var pageSize = window.pageSize;
 var visitedPagesBody = document.getElementById('visitedPagesBody');

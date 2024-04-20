@@ -1,6 +1,7 @@
 {
+    "/js/profile-avatar.js": "/js/profile-avatar.js",
     "/js/send-email.js": "/js/send-email.js",
-    "/js/visitedPages.js": "/js/visitedPages.js",
+    "/js/visited-pages.js": "/js/visited-pages.js",
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.bundle.js": "/js/bootstrap.bundle.js",
     "/css/bootstrap.css": "/css/bootstrap.css",

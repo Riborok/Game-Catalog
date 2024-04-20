@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserAdminController extends Controller
 {
-    public function userAdministration()
+    public function showUserAdministration()
     {
         $user = Auth::user();
         $users = User::retrieveCached();

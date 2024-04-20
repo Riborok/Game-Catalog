@@ -43,11 +43,11 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
-    Route::get('/users', UserAdminController::class . '@userAdministration')->name('user-administration');
+    Route::get('/users', UserAdminController::class . '@showUserAdministration')->name('user-administration');
     Route::delete('/users/delete/{id}', UserAdminController::class . '@deleteUser')->name('user-administration.delete');
     Route::post('/users/change-status/{id}', UserAdminController::class . '@changeStatus')->name('user-administration.change.status');
 
-    Route::get('/dates', DateAdminController::class . '@dateAdministration')->name('date-administration');
+    Route::get('/dates', DateAdminController::class . '@showDateAdministration')->name('date-administration');
     Route::delete('/dates/delete/{id}', DateAdminController::class . '@deleteDate')->name('date-administration.delete');
     Route::put('/dates/update/{id}', DateAdminController::class . '@updateDate')->name('date-administration.update');
     Route::post('/dates/add', DateAdminController::class . '@addDate')->name('date-administration.add');

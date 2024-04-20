@@ -17,6 +17,7 @@
                             </a>
                             <ul class="dropdown-menu text-bg-dark">
                                 <li><a class="dropdown-item" href="{{ route('user-administration') }}">@lang('title.user-administration')</a></li>
+                                <li><a class="dropdown-item" href="{{ route('home-administration') }}">@lang('title.home-administration')</a></li>
                                 <li><a class="dropdown-item" href="{{ route('date-administration') }}">@lang('title.date-administration')</a></li>
                                 <li><a class="dropdown-item" href="{{ route('email-administration') }}">@lang('title.send-email')</a></li>
                             </ul>

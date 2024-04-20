@@ -36,5 +36,5 @@
         window.visitedPages = @json($visitedPages);
         window.pageSize = @json(PAGE_SIZE);
     </script>
-    <script src="{{ asset('/js/visitedPages.js') }}" defer></script>
+    <script src="{{ asset('/js/visited-pages.js') }}" defer></script>
 @endsection
