@@ -15,19 +15,19 @@
         @foreach($users as $current)
             <tr class="{{ $current->id === $user->id ? 'table-primary' : '' }}">
                 <td class="align-middle">
-                    <div class="user-table-cell">
+                    <div class="user-cell">
                         {{ $current->email }}
                     </div>
                 </td>
                 <td class="align-middle">
-                    <div class="user-table-cell">
+                    <div class="user-cell">
                         {{ $current->name }}
                     </div>
                 </td>
                 <td><span class="badge rounded-pill {{ $current->admin ? "bg-primary" : "bg-secondary" }}">{{App\Utils\Other::mb_ucfirst(trans_choice('user-status.' . ($current->admin ? 'admin' : 'user'), 1))}}</span></td>
                 <td>
                     <div class="d-flex">
-                        <form method="POST" action="{{ route('user-administration.change.status', ['id' => $current->id]) }}" class="flex-grow-1">
+                        <form method="POST" action="{{ route('user-administration.change.status', ['id' => $current->id]) }}" class="flex-grow-1 me-1">
                             @csrf
                             <button type="submit" class="btn w-100 white-space-nowrap {{ $current->admin ? "btn-secondary" : "btn-primary" }}">
                                 {{ trans('element.make') . ' ' . trans_choice('user-status.' . (!$current->admin ? 'admin' : 'user'), 2) }}

@@ -12,4 +12,5 @@ return [
     'reset-password' => 'Reset Password',
     'user-administration' => 'User Administration',
     'visited-pages' => 'Visited Pages',
+    'home-administration' => 'Home Administration',
 ];

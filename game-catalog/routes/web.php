@@ -6,6 +6,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DateAdminController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
@@ -44,13 +45,18 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware(AdminMiddleware::class)->prefix('admin')->group(function () {
     Route::get('/users', UserAdminController::class . '@showUserAdministration')->name('user-administration');
-    Route::delete('/users/delete/{id}', UserAdminController::class . '@deleteUser')->name('user-administration.delete');
+    Route::delete('/users/delete/{id}', UserAdminController::class . '@delete')->name('user-administration.delete');
     Route::post('/users/change-status/{id}', UserAdminController::class . '@changeStatus')->name('user-administration.change.status');
 
     Route::get('/dates', DateAdminController::class . '@showDateAdministration')->name('date-administration');
-    Route::delete('/dates/delete/{id}', DateAdminController::class . '@deleteDate')->name('date-administration.delete');
-    Route::put('/dates/update/{id}', DateAdminController::class . '@updateDate')->name('date-administration.update');
-    Route::post('/dates/add', DateAdminController::class . '@addDate')->name('date-administration.add');
+    Route::delete('/dates/delete/{id}', DateAdminController::class . '@delete')->name('date-administration.delete');
+    Route::put('/dates/update/{id}', DateAdminController::class . '@update')->name('date-administration.update');
+    Route::post('/dates/add', DateAdminController::class . '@add')->name('date-administration.add');
+
+    Route::get('/home', HomeAdminController::class . '@showHomeAdministration')->name('home-administration');
+    Route::delete('/home/delete/{id}', HomeAdminController::class . '@delete')->name('home-administration.delete');
+    Route::put('/home/update/{id}', HomeAdminController::class . '@update')->name('home-administration.update');
+    Route::post('/home/add', HomeAdminController::class . '@add')->name('home-administration.add');
 
     Route::get('/send-email', EmailController::class . '@showEmailSender')->name('email-administration');
     Route::post('/send-email', EmailController::class . '@send')->name('email-administration.request');

@@ -12,4 +12,5 @@ return [
     'reset-password' => 'Сбросить пароль',
     'user-administration' => 'Администрирование пользователей',
     'visited-pages' => 'Посещенные страницы',
+    'home-administration' => 'Администрирование домашней страницы',
 ];

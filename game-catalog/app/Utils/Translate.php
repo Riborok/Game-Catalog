@@ -13,7 +13,7 @@ class Translate
     public static function translateFields($data, $fields)
     {
         self::init();
-
+        self::$translator->setTarget(App::getLocale());
         foreach ($data as $curr) {
             foreach ($fields as $field) {
                 $curr->{$field} = self::cacheTranslation($curr->{$field});
@@ -24,7 +24,7 @@ class Translate
     private static function init()
     {
         if (!isset(self::$translator)) {
-            self::$translator = new GoogleTranslate(App::getLocale());
+            self::$translator = new GoogleTranslate();
             self::$translator->setOptions([
                 'curl' => [
                     CURLOPT_SSL_VERIFYPEER => false,

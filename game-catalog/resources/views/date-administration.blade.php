@@ -7,7 +7,7 @@
 @section('admin-content')
     <table class="table">
         <tr>
-            <th>@lang('date-administration.date')</th>
+            <th>@choice('name.date', 1)</th>
             <th>@lang('element.text')</th>
             <th>@lang('element.actions')</th>
         </tr>
@@ -19,14 +19,14 @@
                     <td>
                         <input id="date" type="date" class="form-control" name="date" value="{{ $date->date }}">
                     </td>
-                    <td class="date-text-width">
+                    <td>
                         <x-input-field
                             name="text"
                             placeholder="{{ $date->text }}"
                         />
                     </td>
                     <td class="d-flex">
-                        <button type="submit" class="btn btn-primary w-100 white-space-nowrap">@lang('element.update')</button>
+                        <button type="submit" class="btn btn-primary me-1 w-100 white-space-nowrap">@lang('element.update')</button>
                 </form>
                     <x-btn-delete action="{{ route('date-administration.delete', ['id' => $date->id]) }}" />
             </tr>
@@ -34,11 +34,11 @@
     </table>
 
     <div class="mt-4">
-        <div class="profile-caption">@lang('date-administration.add-date')</div>
+        <div class="profile-caption">{{trans('element.add') . ' ' . App\Utils\Other::mb_lcfirst(trans_choice('name.date', 2))}}</div>
         <form method="POST" class="mt-1" action="{{ route('date-administration.add') }}">
             @csrf
             <div class="form-group">
-                <label for="new-date">@lang('date-administration.date')</label>
+                <label for="new-date">@choice('name.date', 1)</label>
                 <input id="new-date" type="date" class="form-control" name="new-date" value="{{ old('new-date') }}" required>
             </div>
             <div class="form-group mt-1">

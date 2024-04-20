@@ -9,11 +9,7 @@
         @csrf
         <div class="form-group mb-3">
             <label for="receiver">@lang('send-email.receiver'):</label>
-            <select id="receiver" name="receiver" class="form-control @error('receiver') is-invalid @enderror">
-                @foreach($users as $curr)
-                    <option value="{{ $curr->email }}">{{ $curr->email }}</option>
-                @endforeach
-            </select>
+            <x-select-field name="receiver" :options="$users->pluck('email', 'email')"/>
             @error('receiver')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror

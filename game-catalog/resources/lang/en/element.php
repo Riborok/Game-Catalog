@@ -16,4 +16,9 @@ return [
     'text' => 'Text',
     'logout' => 'Logout',
     'make' => 'Make',
+    'first' => 'First',
+    'second' => 'Second',
+    'title' => 'Title',
+    'image' => 'Image',
+    'order' => 'Order',
 ];

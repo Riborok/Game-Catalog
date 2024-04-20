@@ -1,14 +1,16 @@
-.user-table-cell {
-    overflow: auto;
+.user-cell,
+.img-cell,
+table td {
+    min-width: 150px;
+}
+
+.user-cell {
+    flex: 1;
+    overflow-x: auto;
+    max-width: 9vw;
     white-space: nowrap;
 }
 
-.user-table-cell {
-    min-width: 10vw;
-    max-width: 10vw;
-}
-
-.date-text-width {
-    min-width: 18vw;
-    max-width: 18vw;
+.img-cell {
+    max-width: 9vw;
 }

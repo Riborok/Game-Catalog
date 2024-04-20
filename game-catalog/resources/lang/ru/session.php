@@ -2,19 +2,15 @@
 return [
     'session-expired' => 'Сессия истекла. Пожалуйста, попробуйте еще раз.',
 
-    'user-not-found' => 'Пользователь не найден.',
-    'user-not-deleted' => 'Не удалось удалить пользователя.',
-    'user-status-not-changed' => 'Не удалось изменить статус пользователя.',
-    'user-deleted' => 'Пользователь успешно удален.',
-    'user-status-changed' => ':name успешно сделан :status.',
-
-    'date-not-found' => 'Дата не найдена.',
-    'date-not-updated' => 'Не удалось обновить дату.',
-    'date-not-added' => 'Не удалось добавить дату.',
-    'date-not-deleted' => 'Не удалось удалить дату.',
-    'date-updated-successfully' => 'Дата успешно обновлена.',
-    'date-added-successfully' => 'Дата успешно добавлена.',
-    'date-deleted-successfully' => 'Дата успешно удалена.',
+    'not-found' => ':name не найден(а).',
+    'not-deleted' => 'Не удалось удалить :name.',
+    'not-added' => 'Не удалось добавить :name.',
+    'not-updated' => 'Не удалось обновить :name.',
+    'status-not-changed' => 'Не удалось изменить статус для :name.',
+    'deleted' => ':name успешно удален(а).',
+    'status-changed' => ':name успешно сделан(а) :status.',
+    'updated' => ':name успешно обновлен(а).',
+    'added' => ':name успешно добавлен(а).',
 
     'message-sent-successfully' => 'Сообщение успешно отправлено на :receiver!',
     'something-went-wrong' => 'Что-то пошло не так! Пожалуйста, попробуйте еще раз!',
