@@ -8,7 +8,7 @@ use App\Utils\Translate;
 class HomeController extends Controller{
     public function showHome() {
         $features = Feature::retrieveCached();
-        Translate::translateFields($features, ['title', 'text']);
+        Translate::translateFieldsDefault($features, ['title', 'text']);
         return VisitedPages::view('home', ['features' => $features]);
     }
 }

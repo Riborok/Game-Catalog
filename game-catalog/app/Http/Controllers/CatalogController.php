@@ -8,7 +8,7 @@ use App\Utils\Translate;
 class CatalogController extends Controller {
     public function showCatalog() {
         $games = Game::retrieveCached();
-        Translate::translateFields($games, ['title', 'description']);
+        Translate::translateFieldsDefault($games, ['title', 'description']);
         return VisitedPages::view('catalog', ['games' => $games]);
     }
 }

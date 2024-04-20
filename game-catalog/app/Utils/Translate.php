@@ -10,13 +10,15 @@ class Translate
 {
     private static $translator;
 
-    public static function translateFields($data, $fields)
+    public static function translateFieldsDefault($data, $fields) { static::translateFields($data, $fields, App::getLocale()); }
+
+    public static function translateFields($data, $fields, $language)
     {
         self::init();
-        self::$translator->setTarget(App::getLocale());
+        self::$translator->setTarget($language);
         foreach ($data as $curr) {
             foreach ($fields as $field) {
-                $curr->{$field} = self::cacheTranslation($curr->{$field});
+                $curr->{$field} = self::cacheTranslation($curr->{$field}, $language);
             }
         }
     }
@@ -33,9 +35,9 @@ class Translate
         }
     }
 
-    private static function cacheTranslation($text)
+    private static function cacheTranslation($text, $language)
     {
-        $cacheKey = 'translation_' . $text . '_' . App::getLocale();
+        $cacheKey = 'translation_' . $text . '_' . $language;
         return Cache::remember($cacheKey, now()->addHours(24), function () use ($text) {
             return self::$translator->translate($text);
         });

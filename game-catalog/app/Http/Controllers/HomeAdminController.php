@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddFeatureRequest;
 use App\Http\Requests\UpdateFeatureRequest;
 use App\Models\Feature;
+use App\Utils\Translate;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,6 +15,7 @@ class HomeAdminController extends Controller
     {
         $user = Auth::user();
         $features = Feature::retrieveCached();
+        Translate::translateFieldsDefault($features, ['title', 'text']);
         return VisitedPages::view('home-administration', ['user' => $user, 'features' => $features]);
     }
 
