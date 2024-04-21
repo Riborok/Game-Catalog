@@ -1,4 +1,5 @@
-<svg version="1.1" class="pause-animation" id="profile-avatar" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 369.946 369.946" style="enable-background:new 0 0 369.946 369.946;" xml:space="preserve">
+<svg version="1.1" class="pause-animation" id="profile-avatar" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+     viewBox="0 0 369.946 369.946" style="enable-background:new 0 0 369.946 369.946;" xml:space="preserve">
     <style>
         .eye {
         transform-origin: center center;

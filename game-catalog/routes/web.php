@@ -1,22 +1,22 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\CatalogAdminController;
-use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\DateAdminController;
-use App\Http\Controllers\EmailController;
-use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\HomeAdminController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\LinkClickController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\StatisticsController;
-use App\Http\Controllers\UserAdminController;
-use App\Http\Controllers\VisitedPages;
+use App\Http\Controllers\admin\CatalogAdminController;
+use App\Http\Controllers\admin\DateAdminController;
+use App\Http\Controllers\admin\EmailController;
+use App\Http\Controllers\admin\HomeAdminController;
+use App\Http\Controllers\admin\StatisticsController;
+use App\Http\Controllers\admin\UserAdminController;
+use App\Http\Controllers\authentication\AuthController;
+use App\Http\Controllers\authentication\ForgotPasswordController;
+use App\Http\Controllers\authentication\LoginController;
+use App\Http\Controllers\authentication\RegisterController;
+use App\Http\Controllers\authentication\ResetPasswordController;
+use App\Http\Controllers\handler\LanguageController;
+use App\Http\Controllers\handler\LinkClickController;
+use App\Http\Controllers\handler\VisitedPages;
+use App\Http\Controllers\main\CalendarController;
+use App\Http\Controllers\main\CatalogController;
+use App\Http\Controllers\main\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
