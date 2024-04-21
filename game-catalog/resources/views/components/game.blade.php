@@ -6,7 +6,7 @@
         <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ $title }}</h5>
             <p class="card-text">{!! App\Utils\TextHighlighter::highlightText(htmlspecialchars($description)) !!}</p>
-            <a href="{{ $link }}" class="btn btn-primary mt-auto" target="_blank">@lang('catalog.go-to-off-size')</a>
+            <a href="{{route('redirect', ['url' => urlencode("$link")])}}" class="btn btn-primary mt-auto" target="_blank">@lang('catalog.go-to-off-size')</a>
         </div>
     </div>
 </div>

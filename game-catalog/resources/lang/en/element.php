@@ -27,4 +27,6 @@ return [
     'os' => 'OS',
     'browser' => 'Browser',
     'unknown' => 'Unknown',
+    'url' => 'URL',
+    'clicks' => 'Clicks',
 ];

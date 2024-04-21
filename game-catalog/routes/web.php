@@ -10,6 +10,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LinkClickController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
@@ -37,6 +38,8 @@ Route::get('/profile', AuthController::class . '@showProfile')->name('profile');
 Route::post('/login', LoginController::class . '@submit')->name('login.request');
 Route::post('/register', RegisterController::class . '@submit')->name('register.request');
 Route::post('/logout', LoginController::class . '@logout')->name('logout.request');
+
+Route::get('/trackLink', LinkClickController::class . '@handle')->name('redirect');
 
 Route::middleware('guest')->group(function () {
     Route::get('/forgot-password', ForgotPasswordController::class . '@showForgotPassword')->name('forgot.password');

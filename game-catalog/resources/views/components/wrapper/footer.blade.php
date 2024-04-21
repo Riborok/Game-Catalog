@@ -6,10 +6,10 @@
         </div>
 
         <div class="d-flex">
-            <a class="me-3" href="https://github.com/Riborok" target="_blank">
+            <a class="me-3" href="{{route('redirect', ['url' => urlencode("https://github.com/Riborok")])}}" target="_blank">
                 <img class="icon" src="{{ asset('/brands/github.svg') }}" alt="github">
             </a>
-            <a class="me-2" href="https://t.me/egorpnkrtw" target="_blank">
+            <a class="me-2" href="{{route('redirect', ['url' => urlencode("https://t.me/egorpnkrtw")])}}" target="_blank">
                 <img class="icon" src="{{ asset('/brands/telegram.svg') }}" alt="telegram">
             </a>
         </div>

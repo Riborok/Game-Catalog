@@ -5,6 +5,8 @@
 @endsection
 
 @section('admin-content')
+
+    <div class="profile-subtitle">@lang('statistics.user-info')</div>
     <table class="table">
         <tr>
             <th>@lang('element.name')</th>
@@ -27,6 +29,24 @@
                 </td>
                 <td>
                     {{$activity->browser}}
+                </td>
+            </tr>
+        @endforeach
+    </table>
+
+    <div class="profile-subtitle">@lang('statistics.link-clicks')</div>
+    <table class="table">
+        <tr>
+            <th>@lang('element.url')</th>
+            <th>@lang('element.clicks')</th>
+        </tr>
+        @foreach($links as $link)
+            <tr>
+                <td>
+                    {{$link->url}}
+                </td>
+                <td>
+                    {{$link->clicks}}
                 </td>
             </tr>
         @endforeach
