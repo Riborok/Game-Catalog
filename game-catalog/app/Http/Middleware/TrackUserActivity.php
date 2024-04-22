@@ -26,7 +26,9 @@ class TrackUserActivity
                 'user_id' => Auth::id(),
                 'ip' => $request->ip(),
                 'os' => $agent->platform(),
-                'browser' => $agent->browser() . ' v.' . $agent->version($agent->browser()),
+                'browser' => $agent->browser()
+                    ? ($agent->browser() . '/' . $agent->version($agent->browser()))
+                    : '',
             ]
         );
 

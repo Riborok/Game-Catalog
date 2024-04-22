@@ -18,17 +18,17 @@
             <tr>
                 <td class="align-middle">
                     <div class="statistics-cell">
-                        {{$activity->user_id ? $users[$activity->user_id] : trans('element.unknown')}}
+                        {{$activity->user_id ? $users[$activity->user_id] : trans_choice('element.unknown', 1)}}
                     </div>
                 </td>
                 <td>
                     {{$activity->ip}}
                 </td>
                 <td>
-                    {{$activity->os}}
+                    {{$activity->os ?: trans_choice('element.unknown', 2)}}
                 </td>
                 <td>
-                    {{$activity->browser}}
+                    {{$activity->browser ?: trans_choice('element.unknown', 2)}}
                 </td>
             </tr>
         @endforeach
