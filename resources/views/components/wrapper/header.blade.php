@@ -30,14 +30,20 @@
             </a>
 
             <ul class="dropdown-menu text-bg-dark">
-                <li><a class="dropdown-item" href="{{ route('profile') }}">@lang('title.profile')</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li>
-                    <form method="POST" action="{{ route('logout.request') }}">
-                        @csrf
-                        <button type="submit" class="dropdown-item">@lang('element.logout')</button>
-                    </form>
-                </li>
+                @if (Auth::check())
+                    <li><a class="dropdown-item" href="{{ route('profile') }}">@lang('title.profile')</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form method="POST" action="{{ route('logout.request') }}">
+                            @csrf
+                            <button type="submit" class="dropdown-item">@lang('element.logout')</button>
+                        </form>
+                    </li>
+                @else
+                    <li><a class="dropdown-item" href="{{ route('register') }}">@lang('title.register')</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ route('login') }}">@lang('title.login')</a></li>
+                @endif
             </ul>
         </div>
     </div>

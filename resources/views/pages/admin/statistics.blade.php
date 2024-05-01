@@ -18,7 +18,7 @@
             <tr>
                 <td class="align-middle">
                     <div class="statistics-cell">
-                        {{$activity->user_id ? $users[$activity->user_id] : trans_choice('element.unknown', 1)}}
+                        {{$activity->user_id && isset($users[$activity->user_id]) ? $users[$activity->user_id] : trans_choice('element.unknown', 1)}}
                     </div>
                 </td>
                 <td>
