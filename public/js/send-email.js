@@ -1,0 +1,1 @@
+(()=>{var e=document.getElementById("receiver");document.getElementById("send-to-all").addEventListener("change",(function(){if(this.checked){var t=document.createElement("option");t.value="all",t.text="All Users",e.appendChild(t),e.selectedIndex=e.options.length-1}else e.remove(e.options.length-1);e.disabled=this.checked}))})();
