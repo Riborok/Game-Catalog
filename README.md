@@ -4,6 +4,8 @@ This is an educational project for the Web Technologies course. It includes auth
 localization, an admin panel, statistics collection, and much more. The project is written in PHP using 
 the Laravel framework.
 
+[Visit the Game Catalog website](https://game-catalog.000webhostapp.com/)
+
 ![Image 1](/readme%20images/Admin%20Panel.png)
 ![Image 2](/readme%20images/Catalog.png)
 ![Image 3](/readme%20images/Calendar.png)
